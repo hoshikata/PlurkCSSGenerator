@@ -1,0 +1,37 @@
+//- Var
+$color: (
+  primary: #1b262c,
+  secondary: #0f4c81,
+  success: #18b0b0,
+  warning: #ffa372,
+  danger: #ed6663,
+  dark: lighten(#000, 20), //#333333
+  darkGary: lighten(#000, 39), //#636363
+  gary: lighten(#000, 58), //#949494
+  lightGary: lighten(#000, 77), //#C4C4C4
+  light: lighten(#000, 96), //#F5F5F5
+);
+
+$z-index: (
+  review,
+  review1,
+  review2,
+  submenu,
+  menu,
+  header
+);
+
+$colorPrimary: color(primary) !default;
+$colorSecondary: color(secondary) !default;
+$colorSuccess: color(success) !default;
+$colorWarning: color(warning) !default;
+$colorDanger: color(danger) !default;
+$colorBlack: color(dark) !default;
+$colorDarkGary: color(darkGary) !default;
+$colorGary: color(gary) !default;
+$colorLightGary: color(lightGary) !default;
+$colorWhite: color(light) !default;
+
+$borderLogo: $colorWhite;
+$colorLogo: $colorWhite;
+$colorLogoP: $colorWhite;

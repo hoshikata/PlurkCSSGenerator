@@ -1,0 +1,19 @@
+//- Font import
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&display=swap');
+
+//- Sass import
+@import 'mixin';
+@import 'variable';
+@import 'layout';
+@import 'header';
+@import 'wrap';
+@import 'input';
+@import 'review';
+
+//- 通用
+.por{position: relative;}
+.f-grow {flex-grow: 1;}
+.m-0 {margin: 0;}
+.p-0 {padding: 0;}
+.display {display: block;}
