@@ -13,6 +13,11 @@
       title: '文字顏色',
       alpha: [0, 1, 0.1],
     },
+    fz: {
+      css: 'font-size',
+      title: '文字大小',
+      value: [10, 30, 1],
+    },
     opa: {
       css: 'opacity',
       title: '透明度',
@@ -99,7 +104,7 @@
       title: '噗首的普通外觀',
       subtitle: '.timeline-cnt .plurk_cnt',
       name: 'plurkcnt_normal',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     hover: {
@@ -134,7 +139,7 @@
       title: '噗的回應數',
       subtitle: '.timeline-cnt .response_count',
       name: 'plurkcnt_count',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     newcount: {
@@ -162,7 +167,7 @@
       title: '噗的有圖連結',
       subtitle: '.timeline-cnt .plurk_cnt a.meta',
       name: 'plurkcnt_piclink',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
       hidden: false,
     },
     piclinkimg: {
@@ -176,21 +181,21 @@
       title: '噗的普通連結',
       subtitle: '.timeline-cnt .plurk_cnt a.ex_link',
       name: 'plurkcnt_link',
-      csstype: ['c'],
+      csstype: ['c', 'fz'],
       hidden: false,
     },
     plurktime: {
       title: '噗的時間顯示',
       subtitle: '.timeline-timeshow',
       name: 'timeline_plurktime',
-      csstype: ['bgc', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     time: {
       title: '時間軸的時間',
       subtitle: '.bottom_start',
       name: 'timeline_time',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     line: {
@@ -213,28 +218,28 @@
       title: '噗內喜歡數',
       subtitle: '.favorite_count',
       name: 'plurkbox_favorite',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     replurk: {
       title: '噗內轉噗數',
       subtitle: '.replurk_count',
       name: 'plurkbox_replurk',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     bookmark: {
       title: '噗內書籤標籤',
       subtitle: '.bookmark_info',
       name: 'plurkbox_bookmark',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     private: {
       title: '噗內私噗標籤',
       subtitle: '.private_info',
       name: 'plurkbox_private',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     resbox: {
@@ -248,14 +253,14 @@
       title: '回應內容',
       subtitle: '.response_box .list .plurk_cnt',
       name: 'plurkbox_reslist',
-      csstype: ['bgc', 'c', 'bdrs', 'bd'],
+      csstype: ['bgc', 'c', 'fz', 'bdrs', 'bd'],
       hidden: false,
     },
     ownlist: {
       title: '噗主回應內容',
       subtitle: '.response_box .list .highlight_owner .plurk_cnt',
       name: 'plurkbox_ownlist',
-      csstype: ['bgc', 'c', 'bdrs', 'bd'],
+      csstype: ['bgc', 'c', 'fz', 'bdrs', 'bd'],
       hidden: false,
     },
     form: {
@@ -271,14 +276,14 @@
       title: '更新的按鈕',
       subtitle: '#updater .item a',
       name: 'control_updatebtn',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     updatecount: {
       title: '更新的未讀數字',
       subtitle: '#updater .unread_generic',
       name: 'control_updatecount',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     filterstyle: {
@@ -292,21 +297,21 @@
       title: '頻道的普通按鈕',
       subtitle: '#filter_tab a',
       name: 'control_filterbtn',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     filterselect: {
       title: '頻道的選中按鈕',
       subtitle: '#filter_tab a.filter_selected',
       name: 'control_filterselect',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     filtercount: {
       title: '頻道的未讀數字',
       subtitle: '#filter_tab a .unread_generic',
       name: 'control_filtercount',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
   };
@@ -315,7 +320,7 @@
       title: '主控台整體',
       subtitle: '#plurk-dashboard',
       name: 'dashboard_board',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     segment: {
@@ -329,7 +334,7 @@
       title: '個人資料區整體',
       subtitle: '.dash-segment-profile .segment-content',
       name: 'profile_segment',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     img: {
@@ -343,14 +348,21 @@
       title: '個人暱稱',
       subtitle: '#plurk-dashboard .dash-group-left #dash-profile #full_name .display_name',
       name: 'profile_name',
-      csstype: ['c', 'opa'],
+      csstype: ['c', 'fz', 'opa'],
       hidden: false,
     },
     private: {
       title: '私噗按鈕',
       subtitle: '.friend_man.private_plurk',
       name: 'profile_private',
-      csstype: ['dp', 'bgc', 'c', 'opa', 'bdrs'],
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs'],
+      hidden: false,
+    },
+    gift: {
+      title: '送禮按鈕',
+      subtitle: '.friend_man.send_gift',
+      name: 'profile_gift',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs'],
       hidden: false,
     },
   };
@@ -366,21 +378,21 @@
       title: '發噗按鈕',
       subtitle: '.submit_img_color',
       name: 'post_submit',
-      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     stats: {
       title: '卡碼資訊區整體',
       subtitle: '.dash-segment-stats .segment-content',
       name: 'stats_segment',
-      csstype: ['dp', 'bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     fzcolor: {
       title: '統計資訊',
       subtitle: '#plurk-dashboard .dash-segment #dash-stats table td',
       name: 'stats_fzcolor',
-      csstype: ['c'],
+      csstype: ['c', 'fz'],
       hidden: false,
     },
     karma: {
@@ -394,14 +406,14 @@
       title: '好友區整體',
       subtitle: '.dash-segment-friends .segment-content',
       name: 'friends_segment',
-      csstype: ['dp', 'bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     fans: {
       title: '紛絲區整體',
       subtitle: '.dash-segment-fans .segment-content',
       name: 'fans_segment',
-      csstype: ['dp', 'bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
     img: {
@@ -532,6 +544,18 @@
       <h6 data-css="${cssList[item].css}">${cssList[item].title}</h6>
       ${colorHtml(key.name, item, '顏色')}
       ${rangeHtml(key.name, item, cssList[item].alpha, '透明')}
+    </div>
+    `;
+    }
+    return preHtml;
+  }
+  function preHtmlFz(key, item) {
+    let preHtml = '';
+    if (item === 'fz') {
+      preHtml += `
+    <div class="input_box ${item}">
+      <h6 data-css="${cssList[item].css}">${cssList[item].title}</h6>
+      ${rangeHtml(key.name, item, cssList[item].value)}
     </div>
     `;
     }
@@ -768,6 +792,7 @@
       cssType.forEach((item) => {
         // 加上各個preHtml
         preHtml += preHtmlBgc(obj[key], item);
+        preHtml += preHtmlFz(obj[key], item);
         preHtml += preHtmlOpa(obj[key], item);
         preHtml += preHtmlBdrs(obj[key], item);
         preHtml += preHtmlBd(obj[key], item);
@@ -965,6 +990,7 @@
 
   //----- 各個css的style值
   let bgcStyle = (inputBox) => `${colorToRgba(inputBox[0].value, inputBox[1].value)}`;
+  let fzStyle = (inputBox) => `${inputBox[0].value}px`;
   let opaStyle = (inputBox) => `${inputBox[0].value}`;
   let bdrsStyle = (inputBox, bdrsUnit) => `${inputBox[0].value}${bdrsUnit.value}`;
   let bdStyle = (inputBox) => `${inputBox[1].value}px solid ${inputBox[0].value}`;
@@ -985,7 +1011,7 @@
   }
   function preCssC(item, inputBox, cssSubtitle) {
     // 判斷什麼屬性要用 !important
-    let impDecide = cssSubtitle === '#updater .unread_generic' || cssSubtitle === '#filter_tab a .unread_generic' || cssSubtitle === '.friend_man.private_plurk';
+    let impDecide = cssSubtitle === '#updater .unread_generic' || cssSubtitle === '#filter_tab a .unread_generic' || cssSubtitle === '.friend_man.private_plurk' || cssSubtitle === '.friend_man.send_gift';
     // 暫時儲存的變數
     let preCss = '';
     if (item === 'c' && impDecide) {
@@ -998,6 +1024,15 @@
         preCss += `  ${cssList[item].css}: ${bgcStyle(inputBox)};
 `;
       }
+    }
+    return preCss;
+  }
+  function preCssFz(item, inputBox) {
+    // 暫時儲存的變數
+    let preCss = '';
+    if (item === 'fz' && inputBox[0].value !== '') {
+      preCss += `  ${cssList[item].css}: ${fzStyle(inputBox)};
+`;
     }
     return preCss;
   }
@@ -1278,6 +1313,7 @@
         // 加上各個preCss
         preCss += preCssBgc(item, inputBox);
         preCss += preCssC(item, inputBox, cssSubtitle);
+        preCss += preCssFz(item, inputBox);
         preCss += preCssOpa(item, inputBox);
         preCss += preCssBdrs(item, inputBox, radioValue);
         preCss += preCssBd(item, inputBox);
@@ -1376,7 +1412,7 @@ ${filterAllCss}${result}`;
   }
   function preCReview(item, inputBox, reviewBox, cssSubtitle) {
     // 判斷什麼屬性要用 !important
-    let impDecide = cssSubtitle === '#updater .unread_generic' || cssSubtitle === '#filter_tab a .unread_generic' || cssSubtitle === '.friend_man.private_plurk';
+    let impDecide = cssSubtitle === '#updater .unread_generic' || cssSubtitle === '#filter_tab a .unread_generic' || cssSubtitle === '.friend_man.private_plurk' || cssSubtitle === '.friend_man.send_gift';
     if (item === 'c') {
       inputBox.forEach((item) => {
         // 當input ghange時發生動作
@@ -1396,6 +1432,26 @@ ${filterAllCss}${result}`;
           } else {
             reviewBox.forEach((item) => {
               item.style.setProperty('color', '');
+            });
+          }
+        });
+      });
+    }
+  }
+  function preFzReview(item, inputBox, reviewBox) {
+    if (item === 'fz') {
+      inputBox.forEach((item) => {
+        // 當input ghange時發生動作
+        item.addEventListener('input', function () {
+          // 判斷狀況後巡迴要改變的預覽後並連動css
+          // 改變預覽的透明度
+          if (inputBox[0].value !== '') {
+            reviewBox.forEach((item) => {
+              item.style.setProperty('font-size', inputBox[0].value + 'px');
+            });
+          } else {
+            reviewBox.forEach((item) => {
+              item.style.setProperty('font-size', '');
             });
           }
         });
@@ -1639,6 +1695,7 @@ ${filterAllCss}${result}`;
         // 加入各個cssType對應review的前處理
         preBgcReview(item, inputBox, reviewBox);
         preCReview(item, inputBox, reviewBox, cssSubtitle);
+        preFzReview(item, inputBox, reviewBox);
         preOpaReview(item, inputBox, reviewBox);
         preBdrsReview(item, inputBox, reviewBox, radioBox, cssSubtitle);
         preBdReview(item, inputBox, reviewBox);
