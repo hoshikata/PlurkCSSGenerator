@@ -485,7 +485,7 @@
       title: '官方生物',
       subtitle: '#dynamic_logo #creature',
       name: 'dynamic_creature',
-      csstype: ['dp'],
+      csstype: ['opa'],
       hidden: false,
     },
     tlbg: {
