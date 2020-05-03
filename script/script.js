@@ -67,6 +67,10 @@
       title: '位置',
       left: [0, 100, 1],
     },
+    pcoinbgi: {
+      css: 'background-image',
+      title: '背景圖',
+    },
     blur: {
       css: 'filter: blur()',
       title: '模糊化',
@@ -358,6 +362,13 @@
       csstype: ['bgc', 'opa', 'bdrs', 'bd', 'sha'],
       hidden: false,
     },
+    submit: {
+      title: '發噗按鈕',
+      subtitle: '.submit_img_color',
+      name: 'post_submit',
+      csstype: ['bgc', 'c', 'opa', 'bdrs', 'bd', 'sha'],
+      hidden: false,
+    },
     stats: {
       title: '卡碼資訊區整體',
       subtitle: '.dash-segment-stats .segment-content',
@@ -442,6 +453,13 @@
       csstype: ['dp'],
       hidden: false,
     },
+    award: {
+      title: '徽章區',
+      subtitle: '#plurk-dashboard .dash-segment-award',
+      name: 'award_segment',
+      csstype: ['dp'],
+      hidden: false,
+    },
   };
   let otherList = {
     dynamic: {
@@ -463,6 +481,13 @@
       subtitle: '.timeline-bg',
       name: 'tl_bg',
       csstype: ['tlbgi', 'tlbgirep', 'tlbgiposi'],
+      hidden: false,
+    },
+    pcoin: {
+      title: '噗幣旁生物',
+      subtitle: '.profile-icons::before',
+      name: 'pcoin',
+      csstype: ['pcoinbgi', 'size', 'opa'],
       hidden: false,
     },
   };
@@ -615,7 +640,7 @@
   }
   function preHtmlBgi(key, item) {
     let preHtml = '';
-    if (item === 'dcbgi' || item === 'tlbgi') {
+    if (item === 'dcbgi' || item === 'tlbgi' || item === 'pcoinbgi') {
       preHtml += `
     <div class="input_box ${item}">
       <h6 data-css="${cssList[item].css}">${cssList[item].title}</h6>
@@ -1096,6 +1121,23 @@
     }
     return preCss;
   }
+  function preCssPcoinbgi(item, inputBox) {
+    // 暫時儲存的變數
+    let preCss = '';
+    if (item === 'pcoinbgi' && inputBox[0].value !== '') {
+      preCss += `  content: '';
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  ${cssList[item].css}: url("${inputBox[0].value}");
+`;
+    }
+    return preCss;
+  }
   function preCssBlur(item, inputBox) {
     // 暫時儲存的變數
     let preCss = '';
@@ -1247,6 +1289,7 @@
         preCss += preCssTlbgi(item, inputBox);
         preCss += preCssTlbgirep(item, displayValue);
         preCss += preCssTlbgiposi(item, inputBox);
+        preCss += preCssPcoinbgi(item, inputBox);
         preCss += preCssBlur(item, inputBox);
       });
       // 如果run出來的preCss不等於空字串時，再產生css

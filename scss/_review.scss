@@ -15,14 +15,19 @@
   font-size: 13px;
   background-color: $colorWhite;
   color: #333;
-  @include breakpoint(sm) {
-    display: none;
-  }
   // 子選單的預覽按下後的展開狀態
   &.review_open {
     transform: translateY(0);
   }
-
+  @include breakpoint(md) {
+    position: relative;
+    padding: 0;
+    padding-top: 100px;
+    transform: translateY(0);
+  }
+  @include breakpoint(sm) {
+    display: none;
+  }
   * {
     box-sizing: border-box;
   }
