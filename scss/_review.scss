@@ -1374,6 +1374,19 @@
   }
 }
 
+//----- 讓噗內暱稱上移用的class
+.plurkbox_upname {
+  &#review_fh {
+    #form_holder .plurk_cnt .td_qual {
+      position: absolute;
+    }
+    #form_holder .plurk_cnt .text_holder {
+      margin-top: 1.5em;
+      padding-left: 0.7em;
+    }
+  }
+}
+
 //----- 改變頻道型態用的class
 // 頻道向上展開
 .filter_open_top {

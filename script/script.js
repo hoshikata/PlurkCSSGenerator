@@ -85,6 +85,14 @@
       css: '',
       title: '頻道展開',
     },
+    up: {
+      css: '',
+      title: '上移',
+    },
+    boxup: {
+      css: '',
+      title: '上移',
+    },
     ftposi: {
       css: '',
       title: '頻道位置',
@@ -147,6 +155,13 @@
       subtitle: '.timeline-cnt .new .response_count',
       name: 'plurkcnt_newcount',
       csstype: ['bgc', 'c', 'opa'],
+      hidden: false,
+    },
+    pname: {
+      title: '噗友暱稱',
+      subtitle: '.timeline-cnt .td_qual > span',
+      name: 'plurkcnt_pname',
+      csstype: ['up'],
       hidden: false,
     },
     pic: {
@@ -261,6 +276,13 @@
       subtitle: '.response_box .list .highlight_owner .plurk_cnt',
       name: 'plurkbox_ownlist',
       csstype: ['bgc', 'c', 'fz', 'bdrs', 'bd'],
+      hidden: false,
+    },
+    listname: {
+      title: '噗內暱稱上移',
+      subtitle: '#form_holder .plurk_cnt .td_qual',
+      name: 'plurkbox_listname',
+      csstype: ['boxup'],
       hidden: false,
     },
     form: {
@@ -712,6 +734,18 @@
     }
     return preHtml;
   }
+  function preHtmlUp(key, item) {
+    let preHtml = '';
+    if (item === 'up' || item === 'boxup') {
+      preHtml += `
+    <div class="input_box ${item}">
+      <h6 data-css="${cssList[item].css}">${cssList[item].title}</h6>
+      ${checkHtml(key.name, item)}
+    </div>
+    `;
+    }
+    return preHtml;
+  }
   function preHtmlOpen(key, item) {
     let preHtml = '';
     if (item === 'open') {
@@ -804,6 +838,7 @@
         preHtml += preHtmlBgirep(obj[key], item);
         preHtml += preHtmlBgiposi(obj[key], item);
         preHtml += preHtmlBlur(obj[key], item);
+        preHtml += preHtmlUp(obj[key], item);
         preHtml += preHtmlOpen(obj[key], item);
         preHtml += preHtmlFtposi(obj[key], item);
         preHtml += preHtmlToicon(obj[key], item);
@@ -1182,6 +1217,33 @@
     }
     return preCss;
   }
+  function preCssUp(item, displayValue) {
+    // 暫時儲存的變數
+    let preCss = '';
+    if (item === 'up' && displayValue.checked) {
+      preCss += `  position: absolute;
+  transform: translate(-25px, -150%);
+`;
+    }
+    return preCss;
+  }
+  // 判斷噗內暱稱上移的css
+  function preCssBoxup() {
+    let result = '';
+    let boxupBox = document.querySelector('[name="plurkbox_listname_boxup"]');
+    if (boxupBox.checked) {
+      result = `/* 噗內暱稱上移 */
+#form_holder .plurk_cnt .td_qual {
+  position: absolute;
+}
+#form_holder .plurk_cnt .text_holder {
+  margin-top: 1.5em;
+  padding-left: 0.7em;
+}
+`;
+    }
+    return result;
+  }
   // 判斷頻道展開的css
   function filterOpenResult() {
     let result = '';
@@ -1327,6 +1389,7 @@
         preCss += preCssTlbgiposi(item, inputBox);
         preCss += preCssPcoinbgi(item, inputBox);
         preCss += preCssBlur(item, inputBox);
+        preCss += preCssUp(item, displayValue);
       });
       // 如果run出來的preCss不等於空字串時，再產生css
       if (preCss !== '') {
@@ -1351,14 +1414,14 @@ ${preCss}}
       result += preCssCreate(item);
     });
     // 加上頻道型態的css
-    let filterAllCss = filterOpenResult() + filterPosiResult() + filterCountResult();
+    let onlyCss = preCssBoxup() + filterOpenResult() + filterPosiResult() + filterCountResult();
     // 加上作者資訊跟result
-    if (result !== '' || filterAllCss !== '') {
+    if (result !== '' || onlyCss !== '') {
       info = `/**======= Create by Plurk CSS Generator =======**/
 /**== https://hoshikata.github.io/PlurkCSSGenerator ==**/
 /*==== 作者噗浪 https://www.plurk.com/hoshikata ====*/
 
-${filterAllCss}${result}`;
+${onlyCss}${result}`;
     }
     return info;
   }
@@ -1608,6 +1671,40 @@ ${filterAllCss}${result}`;
       });
     }
   }
+  function preUpReview(item, inputBox, reviewBox, displayBox) {
+    if (item === 'up') {
+      inputBox.forEach((item) => {
+        // 當input ghange時發生動作
+        item.addEventListener('change', function () {
+          // 如果displayBox有被checked，那display: none，否則不用
+          // 巡迴要改變的預覽後並連動css
+          if (displayBox.checked) {
+            reviewBox.forEach((item) => {
+              item.style.setProperty('position', 'absolute');
+              item.style.setProperty('transform', 'translate(-25px, -150%)');
+            });
+          } else {
+            reviewBox.forEach((item) => {
+              item.style.setProperty('position', '');
+              item.style.setProperty('transform', '');
+            });
+          }
+        });
+      });
+    }
+  }
+  function preBoxNameUpReview(item, inputBox, displayBox) {
+    let addListBox = document.querySelector('#review_fh');
+    if (item === 'boxup') {
+        displayBox.addEventListener('change', function () {
+          if (displayBox.checked) {
+            addListBox.classList.add('plurkbox_upname');
+          } else {
+            addListBox.classList.remove('plurkbox_upname');
+          }
+        });
+    }
+  }
   function preFilterOpenReview(item, inputBox, radioBox) {
     let addListBox = document.querySelector('#review_tc');
     if (item === 'open') {
@@ -1702,6 +1799,8 @@ ${filterAllCss}${result}`;
         preShaReview(item, inputBox, reviewBox);
         preDpReview(item, inputBox, reviewBox, displayBox);
         preBlurReview(item, inputBox, reviewBox);
+        preUpReview(item, inputBox, reviewBox, displayBox);
+        preBoxNameUpReview(item, inputBox, displayBox);
         preFilterOpenReview(item, inputBox, radioBox);
         preFilterPosiReview(item, inputBox, radioBox);
         preFilterCountReview(item, inputBox, radioBox);
