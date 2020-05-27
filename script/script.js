@@ -977,7 +977,7 @@
     // 暫時儲存的變數
     let cssCheck = item === 'blur' && inputBox[0].value !== '';
     let preCss = '';
-    if (cssCheck) preCss = `  filter: blur(${opaStyle(inputBox)});
+    if (cssCheck) preCss = `  filter: blur(${inputBox[0].value}px);
 `;
     return preCss;
   }
