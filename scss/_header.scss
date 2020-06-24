@@ -107,50 +107,46 @@
 .toggler {
   position: absolute;
   display: none;
-  flex-direction: column;
-  justify-content: center;
   top: 0;
   right: 0;
-  @include size(25px, 30px);
-  box-sizing: border-box;
-  margin: 15px;
+  @include size(25px, 20px);
+  margin: 20px;
   margin-left: 0;
   margin-right: 45px;
   cursor: pointer;
   
   .toggler_item {
     position: absolute;
-    @include size(100%, 3px);
-    padding: 0;
-    margin: 0;
+    top: 50%;
+    left: 0;
+    @include size(100%, 2px);
     transform-origin: center center;
+    transform: translateY(-50%) rotate(0);
     transition: 0.3s;
     background-color: $colorWhite;
   }
   .item_top {
-    margin-bottom: 15px;
+    top: 0;
+    transform: translateY(0) rotate(0);
   }
   .item_bottom {
-    margin-top: 16px;
+    top: 100%;
+    transform: translateY(-100%) rotate(0);
   }
   
   //RWD
   @include breakpoint(md) {
-    display: flex;
+    display: block;
   }
 }
 
 .has_click {
   .toggler_item {
+    transform: translateY(-50%) rotate(-45deg);
   }
-  .item_top {
-    margin-bottom: 0;
-  }
+  .item_top, 
   .item_bottom {
-    margin-top: 0;
-    transform: rotate(45deg);
-  }
-  .item_top, .item_mid {
-    transform: rotate(-45deg);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
   }
 }
