@@ -1152,7 +1152,7 @@
   function useableCss(name, result) {
     if (useableList.includes(name[2])) {
       let getCss = cssFunction[name[2]](name[1]) + importantDecide(name);
-      result.push([name[1], `${cssList[name[2]].css}: ${getCss}`]);
+      result.push([name[1], `${cssList[name[2]].css}: ${getCss};`]);
       if (overflowDecide(name)) {
         let [tag, ...overflow] = overflowDecide(name);
         result.push([tag, overflow.join(': ') + ';']);
