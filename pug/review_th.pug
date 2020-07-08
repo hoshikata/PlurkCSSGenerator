@@ -1,183 +1,183 @@
 
 // 河道
 #timeline_holder.timeline-holder(style='height: 350px;')
-// 河道的噗
-#timeline_cnt.timeline-cnt(style='padding-bottom: 0px;')
-  .block_cnt(style='height: 100% !important; width: 100% !important; left: 0px; transition: left 90ms linear 0s;')
-    .plurk.cboxAnchor.new(style='left: 5%; top: 2%;')
-      table
-        tbody
-          tr
-            // 噗頭像
-            td.td_img
-              .p_img
-                a(href='javascript:;')
-                  img(src='https://picsum.photos/20/20?random=21')
-            // 噗內容
-            td
-              .plurk_cnt
-                table
-                  tbody
-                    tr.tr_cnt
-                      // 噗暱稱&轉噗標示
-                      td.td_qual
-                        span
-                          a.name(href='javascript:;') 暱稱
-                      // 發噗內容
-                      td.td_cnt
-                        .text_holder
-                          // 轉噗人名
-                          | 這是普通外觀
-            // 回應數
-            td.td_response_count
-              a(href='javascript:;')
-                span.response_count 20
-    .plurk.cboxAnchor.new.display.link_extend(style='left: 5%; top: 15%;')
-      table
-        tbody
-          tr
-            // 噗頭像
-            td.td_img
-              .p_img
-                a(href='javascript:;')
-                  img(src='https://picsum.photos/20/20?random=21')
-            // 噗內容
-            td
-              .plurk_cnt
-                table
-                  tbody
-                    tr.tr_cnt
-                      // 噗暱稱&轉噗標示
-                      td.td_qual
-                        span
-                          a.name(href='javascript:;') 暱稱
-                      // 發噗內容
-                      td.td_cnt
-                        .text_holder
-                          // 轉噗人名
-                          | 這是被滑鼠移至的外觀
-                        // 移至與展開才會出現
-                        .manager
-                          a.mute.pif-volume.mute-off
-                          a.pif-replurk.replurk.replurk-off
-                            span 5
-                          a.pif-like.like.like-off
-                            span 10
-                          a.pif-star.bookmark.mark-off
-                          a.pif-bone.gift
-                            span 1
-                          a.pif-option.option
-            // 回應數
-            td.td_response_count
-              a(href='javascript:;')
-                span.response_count 20
-    .plurk.cboxAnchor.display.link_extend.plurk_box(style='left: 50%; top: 2%;')
-      table
-        tbody
-          tr
-            // 噗頭像
-            td.td_img
-              .p_img
-                a(href='javascript:;')
-                  img(src='https://picsum.photos/20/20?random=21')
-            // 噗內容
-            td
-              .plurk_cnt
-                table
-                  tbody
-                    tr.tr_cnt
-                      // 噗暱稱&轉噗標示
-                      td.td_qual
-                        span
-                          a.name(href='javascript:;') 暱稱
-                          span.qualifier.q_replurks
-                            | 轉噗
-                            i.pif-replurk
-                      // 發噗內容
-                      td.td_cnt
-                        .text_holder
-                          // 轉噗人名
-                          span
-                            a.name(href='javascript:;' style="color: #86CA6F;") 轉噗人名
-                          span.text_holder
-                            span.hashtag
-                              a.hashtag(href='javascript:;') #Hashtag
-                            br
-                            | 這是被展開後的外觀
-                            br
-                            // 普通連結
-                            a.ex_link(href='javascript:;') 普通連結
-                            br
-                            // 有圖連結
-                            a.ex_link.meta(href='javascript:;')
-                              img(src='https://picsum.photos/86/86?random=24' height='40px')
-                              | 有圖連結
-                            // 圖片
-                            a.ex_link.pictureservices(href='javascript:;')
-                              img(src='https://picsum.photos/48/64?random=22' height='48')
-                            | 圖片
-                            br
-                          // 表符
-                            | 表符
-                            br
-                            img.emoticon_my(src='https://picsum.photos/48/48?random=23' width='48' height='48')
-                        // 移至與展開才會出現
-                        .manager
-                          a.mute.pif-volume.mute-off
-                          a.pif-replurk.replurk.replurk-off
-                            span 5
-                          a.pif-like.like.like-off
-                            span 10
-                          a.pif-star.bookmark.mark-off
-                          a.pif-bone.gift
-                            span 1
-                          a.pif-option.option
-                // 展開才會出現的時間
-                .time
+  // 河道的噗
+  #timeline_cnt.timeline-cnt(style='padding-bottom: 0px;')
+    .block_cnt(style='height: 100% !important; width: 100% !important; left: 0px; transition: left 90ms linear 0s;')
+      .plurk.cboxAnchor.new(style='left: 5%; top: 2%;')
+        table
+          tbody
+            tr
+              // 噗頭像
+              td.td_img
+                .p_img
                   a(href='javascript:;')
-                    span.posted
-                      time.timeago 發噗時間
-            // 回應數
-            td.td_response_count
-              a(href='javascript:;')
-                span.response_count 20
-    .plurk.cboxAnchor.porn.new(style='left: 5%; top: 60%;')
-      table
-        tbody
-          tr
-            // 噗頭像
-            td.td_img
-              .p_img
-                a(href='javascript:;')
-                  img(src='https://picsum.photos/20/20?random=21')
-            // 噗內容
-            td
-              .plurk_cnt
-                table
-                  tbody
-                    tr.tr_cnt
-                      // 噗暱稱&轉噗標示
-                      td.td_qual
-                        span
-                          a.name(href='javascript:;') 暱稱
-                      // 發噗內容
-                      td.td_cnt
-                        .text_holder
+                    img(src='https://picsum.photos/20/20?random=21')
+              // 噗內容
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        // 噗暱稱&轉噗標示
+                        td.td_qual
                           span
-                            a.name(href="javascript:;" style="color:#E8AF37") 轉噗人名
-                            span.porn-icon.pif-porn
+                            a.name(href='javascript:;') 暱稱
+                        // 發噗內容
+                        td.td_cnt
                           .text_holder
-                            | 這是R18噗的外觀
-            // 回應數
-            td.td_response_count
-              a(href='javascript:;')
-                span.response_count 20
-// 時間軸
-#timeline_bg.timeline-bg(style='padding-bottom: 0px;')
-  #bottom_line.bottom-line(style='display: block;')
-  .block_bg(style='height: 100% !important; width: 100% !important; left: 0px; transition: left 90ms linear 0s;')
-    .bottom_start.day_start.div_bottom(style='left: 15px;') 今天
-    .bottom_start.time_start.div_bottom(style='left: 200px;') 20:00
-// 噗下時間
-#time_show.timeline-timeshow.morning(style='left: 63.05px;')
-  span 今天 20:00
+                            // 轉噗人名
+                            | 這是普通外觀
+              // 回應數
+              td.td_response_count
+                a(href='javascript:;')
+                  span.response_count 20
+      .plurk.cboxAnchor.new.display.link_extend(style='left: 5%; top: 15%;')
+        table
+          tbody
+            tr
+              // 噗頭像
+              td.td_img
+                .p_img
+                  a(href='javascript:;')
+                    img(src='https://picsum.photos/20/20?random=21')
+              // 噗內容
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        // 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href='javascript:;') 暱稱
+                        // 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            // 轉噗人名
+                            | 這是被滑鼠移至的外觀
+                          // 移至與展開才會出現
+                          .manager
+                            a.mute.pif-volume.mute-off
+                            a.pif-replurk.replurk.replurk-off
+                              span 5
+                            a.pif-like.like.like-off
+                              span 10
+                            a.pif-star.bookmark.mark-off
+                            a.pif-bone.gift
+                              span 1
+                            a.pif-option.option
+              // 回應數
+              td.td_response_count
+                a(href='javascript:;')
+                  span.response_count 20
+      .plurk.cboxAnchor.display.link_extend.plurk_box(style='left: 50%; top: 2%;')
+        table
+          tbody
+            tr
+              // 噗頭像
+              td.td_img
+                .p_img
+                  a(href='javascript:;')
+                    img(src='https://picsum.photos/20/20?random=21')
+              // 噗內容
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        // 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href='javascript:;') 暱稱
+                            span.qualifier.q_replurks
+                              | 轉噗
+                              i.pif-replurk
+                        // 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            // 轉噗人名
+                            span
+                              a.name(href='javascript:;' style="color: #86CA6F;") 轉噗人名
+                            span.text_holder
+                              span.hashtag
+                                a.hashtag(href='javascript:;') #Hashtag
+                              br
+                              | 這是被展開後的外觀
+                              br
+                              // 普通連結
+                              a.ex_link(href='javascript:;') 普通連結
+                              br
+                              // 有圖連結
+                              a.ex_link.meta(href='javascript:;')
+                                img(src='https://picsum.photos/86/86?random=24' height='40px')
+                                | 有圖連結
+                              // 圖片
+                              a.ex_link.pictureservices(href='javascript:;')
+                                img(src='https://picsum.photos/48/64?random=22' height='48')
+                              | 圖片
+                              br
+                            // 表符
+                              | 表符
+                              br
+                              img.emoticon_my(src='https://picsum.photos/48/48?random=23' width='48' height='48')
+                          // 移至與展開才會出現
+                          .manager
+                            a.mute.pif-volume.mute-off
+                            a.pif-replurk.replurk.replurk-off
+                              span 5
+                            a.pif-like.like.like-off
+                              span 10
+                            a.pif-star.bookmark.mark-off
+                            a.pif-bone.gift
+                              span 1
+                            a.pif-option.option
+                  // 展開才會出現的時間
+                  .time
+                    a(href='javascript:;')
+                      span.posted
+                        time.timeago 發噗時間
+              // 回應數
+              td.td_response_count
+                a(href='javascript:;')
+                  span.response_count 20
+      .plurk.cboxAnchor.porn.new(style='left: 5%; top: 60%;')
+        table
+          tbody
+            tr
+              // 噗頭像
+              td.td_img
+                .p_img
+                  a(href='javascript:;')
+                    img(src='https://picsum.photos/20/20?random=21')
+              // 噗內容
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        // 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href='javascript:;') 暱稱
+                        // 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            span
+                              a.name(href="javascript:;" style="color:#E8AF37") 轉噗人名
+                              span.porn-icon.pif-porn
+                            .text_holder
+                              | 這是R18噗的外觀
+              // 回應數
+              td.td_response_count
+                a(href='javascript:;')
+                  span.response_count 20
+  // 時間軸
+  #timeline_bg.timeline-bg(style='padding-bottom: 0px;')
+    #bottom_line.bottom-line(style='display: block;')
+    .block_bg(style='height: 100% !important; width: 100% !important; left: 0px; transition: left 90ms linear 0s;')
+      .bottom_start.day_start.div_bottom(style='left: 15px;') 今天
+      .bottom_start.time_start.div_bottom(style='left: 200px;') 20:00
+  // 噗下時間
+  #time_show.timeline-timeshow.morning(style='left: 63.05px;')
+    span 今天 20:00
