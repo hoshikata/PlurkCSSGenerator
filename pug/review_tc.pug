@@ -1,0 +1,54 @@
+
+// 控制列
+.timeline_control
+  #timeline_control_holder
+    // 頻道
+    ul#filter_tab
+      li
+        a#favorite_plurks_tab_btn.off_tab.has_unread(title='瀏覽您按過喜歡的訊息')
+          i.pif-like
+          | 喜歡的訊息
+          span#count_favorite_plurks
+            span.unread_generic 12
+      li
+        a#replurked_plurks_tab_btn.off_tab.no_unread(title='瀏覽您轉噗過的訊息')
+          i.pif-replurk
+          | 轉噗的訊息
+          span#count_replurked_plurks
+      li
+        a#responded_plurks_tab_btn.off_tab.has_unread(title='瀏覽您回應過的訊息')
+          i.pif-message
+          | 回應過的訊息
+          span#count_responded_plurks
+            span.unread_generic 6
+      li
+        a#private_plurks_tab_btn.off_tab.no_unread(title='瀏覽您的私人訊息')
+          i.pif-message-private
+          | 私人訊息
+          span#count_private_plurks
+      li
+        a#own_plurks_tab_btn.off_tab.no_unread(title='瀏覽您發表的訊息')
+          i.pif-message-my
+          | 我發表的訊息
+          span#count_my_plurks
+      li
+        a#all_plurks.filter_selected.bottom_line_bg.has_unread(title='瀏覽所有訊息')
+          i.pif-messages
+          | 所有訊息
+          span#count_all_plurk
+            span.unread_generic 192
+    // 更新
+    #updater
+      // 新訊息
+      #noti_np.item
+        a
+          i.pif-message-new
+          span#noti_np_text 新訊息
+          span#noti_np_count.unread_generic 19
+      #noti_re.item
+        // 檢視訊息
+        #noti_re_view.item
+          a
+            i.pif-message-new
+            span#noti_re_text 檢視未讀訊息
+            span#noti_re_count.unread_generic 83

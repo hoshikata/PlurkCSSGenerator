@@ -1,0 +1,156 @@
+
+// 主控台
+#dashboard_holder
+  #plurk-dashboard
+    .dash-group-form(style="opacity: 0.2;")
+      // 發噗區
+      .dash-segment.dash-segment-post
+        .segment-content
+          #plurk_form
+            form#pane_plurk.plurkaction.pane
+              #main_poster
+                .plurkForm
+                  .click.submit_img.submit_img_color Plurk
+                  .input_holder
+                    .qual_holder(style='float: left;')
+                      .dd_img.m_qualifier.q_freestyle
+                        i.pif-dropdown
+                    .textarea_holder(contenteditable='true')
+                      textarea#input_big.content(style='height: 37px; color: black;')
+                    .share_holder
+                      .share_list(style='display: none;')
+                        ul
+                          li.add_photo +
+                        input(style='opacity: 0; visibility: hidden; display: none;')
+                  ul.icons_holder
+                    li.cmp_emoticon_off.pif-emoticon
+                    li.pif-media.cmp_media_off
+                    li.pif-sync.cmp_sync_off
+                    li.pif-anynomous.cmp_anynomous_off
+                    li.pif-privacy.cmp_privacy_off
+                  .plurk_schedule
+                  .plurk_to
+                  .char_updater
+    .dash-group-left
+      // 個人資訊區
+      .dash-segment.dash-segment-profile
+        .segment-content
+          #dash-profile
+            // 大頭貼
+            a(href='javascript:;')
+              img#profile_pic.profile-pic(src='https://picsum.photos/86/86?random=1')
+            // 暱稱
+            #full_name
+              span.display_name 使用者名稱
+              span.nick_name @帳號
+            // 年齡性別
+            .profile-info
+              span#span_years 年齡, 
+              span#m_or_f 性別
+            // 噗幣圖示
+            .profile-icons
+              .premium
+                img#premium-icon(src='img/premium.png')
+        .segment-content
+          #dash-additional-info
+            // 私噗按鈕
+            #private_plurk
+              span#render_private_plurk
+                a.friend_man.private_plurk.hideBlock 傳送私人訊息
+              span#render_send_gift
+                a.friend_man.send_gift.hideBlock  送禮物
+            // 自介
+            p#about_me.aboutme.cboxAnchor 自介
+            // 地區
+            p#location_container
+              span#location 地區
+    .dash-group-right(style="opacity: 0.2;")
+      // 卡瑪
+      .dash-segment.dash-segment-stats
+        .segment-content
+          #dash-stats
+            h2 統計
+            .dash-stats-karma
+              .karma_hover
+                | Karma:
+                span#karma_holder
+                  span#karma_div
+                    span#karma.karma_red.karma_green 88.88
+                span#karma_arrow.show.pif-arrow-down
+              .help
+                a(href='javascript:;') 假期模式已啟用，Karma 值已凍結.
+            table#dash-stats-table
+              tbody
+                tr
+                  th 人氣指數
+                  td#profile_views 100
+                  th 成功募集人數
+                  td 1
+                tr
+                  th Plurks
+                  td#plurks_count 100
+                  th 回應數
+                  td#response_count 1000
+                tr
+                  th 註冊日期
+                  td#join_date 2020-4-1
+                  th 上次登入
+                  td#last_visit 2020-4-1
+      // 朋友
+      .dash-segment.dash-segment-friends
+        .segment-content
+          #dash-friends
+            h2 朋友
+            #friend_managment
+              span#render_friend
+                a.friend_man.friend-editor.pif-user-add.add_friend 加為朋友
+            #dash-friends-pics
+              .show_all_friends
+                a(href='javascript:;')
+                  | 所有朋友 (
+                  span#num_of_friends 10
+                  | )
+              .show_mutual_friends
+                a(href='javascript:;')
+                  | 共同好友 (
+                  span#num_of_mutual_friends 1
+                  | )
+              #friend_holder.friend_holder
+                ul.clearfix
+                  li
+                    a.user_link.name(href='javascript:;')
+                      img(src='https://picsum.photos/35/35?random=10')
+                  li
+                    a.user_link.name(href='javascript:;')
+                      img(src='https://picsum.photos/35/35?random=11')
+      // 粉絲
+      .dash-segment.friendsList.dash-segment-fans
+        .segment-content
+          #dash-fans
+            h2#h2_fans 粉絲
+            #fan_managment
+              span#render_follow
+                a.friend_man.follow-editor.pif-follow.unfollow 關注中
+            #dash-fans-pics
+              .show_all_friends
+                a(href='javascript:;')
+                  | 所有粉絲 (
+                  span#num_of_fans 10
+                  | )
+              #fan_holder.friend_holder
+                ul.clearfix
+                  li
+                    a.user_link.name(href='javascript:;')
+                      img(src='https://picsum.photos/35/35?random=12')
+                  li
+                    a.user_link.name(href='javascript:;')
+                      img(src='https://picsum.photos/35/35?random=13')
+      // 徽章
+      .dash-segment.dash-segment-award
+        .segment-content
+          #dash-award
+            .award_bar.clearfix
+              .cmp_9
+            a.link_arrow
+              i.pif-arrow-points
+              | 如何獲得徽章？

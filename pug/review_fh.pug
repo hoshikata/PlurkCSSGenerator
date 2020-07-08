@@ -1,0 +1,62 @@
+
+// 噗內回應
+#form_holder.plurk_box(style='top: 0px; left: 50px; width: 460px;')
+  // 最上方資訊列 
+  .response_box(style='max-height: 200px;')
+    .response_info.clearfix
+      .favorite_count.button.small-button 1 喜歡
+      .replurk_count.button.small-button 1 轉噗
+      .bookmark_info.button.small-button 書籤
+      .private_info.pif-privacy.button.small-button 所有朋友
+      .response-status
+        span.response-count.pif-message 2 則回應
+        .response-only-owner.button.small-button(style='display: inline-block;') 只顯示原作者的回應
+    // 回應內容
+    .list
+      .plurk.cboxAnchor.response.highlight_owner
+        table
+          tbody
+            tr
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        td.td_qual
+                          span
+                            a.name(href='javascript:;') 噗主
+                            span
+                        td.td_cnt
+                          .text_holder 噗主留言
+      .plurk.cboxAnchor.response
+        table
+          tbody
+            tr
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        td.td_qual
+                          span
+                            a.name(href='javascript:;') 暱稱
+                            span
+                        td.td_cnt
+                          .text_holder 留言
+  // 打字區
+  .poster_holder(style='display: block;')
+    .mini_form
+      .plurkForm.mini-mode
+        .input_holder
+          .qual_holder(style='float: left;')
+            .dd_img.m_qualifier.q_freestyle
+              span(style='display: none;')
+              i.pif-dropdown
+          .textarea_holder
+            textarea#input_small.content(style='height: 19px; color: black;')
+        ul.icons_holder
+          li.cmp_emoticon_mini_off.pif-emoticon
+          li.cmp_media_mini_off.pif-media
+        .plurk_schedule
+        .plurk_to
+        .char_updater 按 Enter 送出
