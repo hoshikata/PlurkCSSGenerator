@@ -1,0 +1,111 @@
+$tc-index: (
+  timeline_control: 10,
+);
+
+//----- 控制列
+.review {
+  .timeline_control {
+    z-index: map-get($tc-index, timeline_control);
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    margin-left: 16px;
+    margin-top: -46px;
+    pointer-events: none;
+  }
+  .timeline_control a {
+    border-radius: 5px;
+    padding: 0 8px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
+    white-space: nowrap;
+  }
+  .timeline_control a i {
+    opacity: 0.8;
+    width: 18px;
+    margin-right: 4px;
+  }
+  #timeline_control_holder {
+    position: absolute;
+    bottom: 0;
+  }
+
+  #updater {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    pointer-events: auto;
+  }
+  #updater,
+  #updater .item,
+  #updater .item a {
+    white-space: nowrap;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+  }
+  #updater .item a {
+    background: #fff;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  #updater .item a:hover {
+    background: #ff574d;
+    color: #fff;
+  }
+
+  #filter_tab {
+    float: right;
+    pointer-events: auto;
+  }
+  #filter_tab::after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+  }
+  #filter_tab li {
+    list-style: none;
+    float: right;
+    clear: both;
+    width: 100%;
+  }
+  #filter_tab a {
+    display: block;
+    height: 0;
+    margin-top: 0;
+    padding: 0 12px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: height 200ms ease-in, margin-top 200ms ease-in;
+    background: #fff;
+    color: #999;
+  }
+  #filter_tab a:hover {
+    opacity: 1;
+  }
+  #filter_tab a.filter_selected {
+    color: #fff;
+    background: #ff574d;
+  }
+  #filter_tab:hover a,
+  #filter_tab a.filter_selected,
+  #filter_tab a.has_unread,
+  #filter_tab:hover a.filter_selected,
+  #filter_tab:hover a.has_unread {
+    height: 25px;
+    margin-top: 6px;
+  }
+
+  .unread_generic {
+    padding: 2px 4px 1px;
+    margin-left: 5px;
+    background-color: #f83010;
+    color: #fff !important;
+    border-radius: 4px;
+    font-family: arial, sans-serif;
+    font-size: 12px;
+  }
+}

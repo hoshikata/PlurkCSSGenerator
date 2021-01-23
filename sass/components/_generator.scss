@@ -1,0 +1,292 @@
+@mixin generatorStatus($status) {
+  @at-root .generator_container#{$status} & {
+    @content;
+  }
+}
+@mixin generatorTitle {
+  color: $font-color;
+  &::after {
+    @content;
+    font-size: 0.7em;
+    font-weight: 300;
+    color: color(Gray);
+  }
+}
+@mixin rangeThumb {
+  @include size(15px);
+  border-radius: 50%;
+  border: none;
+  background-color: color(Success);
+}
+@mixin radioStyle {
+  color: color(White);
+  &::before {
+    height: 100%;
+    border-radius: 3px;
+    @content;
+  }
+}
+
+.generator {
+  width: 100%;
+  padding: 0 10px;
+  padding-left: 35px;
+  box-sizing: border-box;
+  &_container {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(color(Black), 0.08);
+    &::before {
+      content: '+';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      padding-right: 5px;
+      box-sizing: border-box;
+      transform: translate(-100%, -2px);
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 37px;
+      text-align: center;
+      color: color(Success);
+    }
+    &:hover {
+      background-color: color(Success);
+    }
+    &-open {
+      margin-bottom: 25px;
+      cursor: auto;
+      background-color: transparent;
+      &::before {
+        content: '-';
+      }
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  &_title {
+    border-bottom: 2px solid transparent;
+    @include generatorTitle {
+      content: attr(data-selector);
+      display: none;
+    }
+    @at-root .generator_container-apply & {
+      color: color(Success);
+    }
+    @at-root .generator_container-open.generator_container-apply & {
+      color: $font-color;
+      border-bottom-color: color(Success);
+    }
+    @include generatorStatus(':hover') {
+      color: color(White);
+    }
+    @include generatorStatus('-open:hover') {
+      color: $font-color;
+    }
+    @include generatorStatus('-open') {
+      padding-bottom: 10px;
+      cursor: pointer;
+      border-bottom-color: color(WhiteGray);
+      &::after {
+        display: block;
+      }
+      &:hover {
+        color: color(Success);
+      }
+    }
+  }
+  &_body {
+    display: none;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+    @include generatorStatus('-open') {
+      display: flex;
+    }
+  }
+  &_box {
+    width: 220px;
+    margin-top: 15px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  &_subtitle {
+    @include generatorTitle {
+      content: attr(data-css);
+      margin-left: 5px;
+    }
+  }
+  &_group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+  }
+  &_input {
+    flex: 1 1 auto;
+    @include size(0, 25px);
+    padding: 2px 5px;
+    box-sizing: border-box;
+    @include Noto;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
+    border: 1px solid color(Gray);
+    background-color: transparent;
+    color: $font-color;
+    &::placeholder {
+      opacity: 0.3;
+      color: $font-color;
+    }
+    &:focus {
+      border-color: $font-color;
+    }
+    &-no-empty {
+      border-color: $font-color;
+    }
+  }
+  &_input-color {
+    @include size(25px);
+    margin-left: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 3px;
+    border: none;
+    &::-moz-color-swatch,
+    &::-webkit-color-swatch {
+      border-radius: 3px;
+      border: none;
+    }
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+  }
+  &_input-range {
+    @include size(150px, 5px);
+    margin-left: 5px;
+    padding: 0 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(color(WhiteGray), 0.5);
+    // 其他瀏覽器的滑桿頭設定
+    &::-webkit-slider-thumb {
+      appearance: none;
+      @include rangeThumb;
+    }
+    // 火狐的滑桿頭設定
+    &::-moz-range-thumb {
+      @include size(15px);
+      @include rangeThumb;
+    }
+    // 去除 focus 時候的外框虛線
+    &::-moz-focus-outer {
+      border: none;
+    }
+  }
+  &_input-checkbox,
+  &_input-radio {
+    display: none;
+  }
+  &_label-checkbox {
+    position: relative;
+    height: 22px;
+    padding-left: 50px;
+    cursor: pointer;
+    line-height: 22px;
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      @include size(40px, 100%);
+      border-radius: 3px;
+      background-color: color(WhiteGray);
+      box-shadow: inset 0 0 2px rgba(color(Primary), 0.3);
+      transition: 0.3s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      @include size(18px);
+      margin-left: 2px;
+      margin-top: 2px;
+      box-sizing: border-box;
+      border-radius: 3px;
+      background-color: color(White);
+      transition: all 0.3s, box-shadow 0.1s;
+    }
+    &:hover::after {
+      box-shadow: 0 0 3px 1px rgba(color(Primary), 0.3);
+    }
+    .generator_text-yes {
+      display: none;
+    }
+    @at-root .generator_input-checkbox:checked + & {
+      &::before {
+        background-color: color(Success);
+      }
+      &::after {
+        margin-left: 20px;
+      }
+      .generator_text-yes {
+        display: inline;
+      }
+      .generator_text-no {
+        display: none;
+      }
+    }
+  }
+  &_label-radio {
+    z-index: 0;
+    position: relative;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    & ~ & {
+      margin-left: 10px;
+    }
+    &::before {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      @include size(100%, 1px);
+      border-radius: 0;
+      background-color: color(WhiteGray);
+      transition: 0.3s;
+    }
+    &:hover::before {
+      background-color: color(Black);
+    }
+    @at-root .generator_input-radio:checked + & {
+      @include radioStyle {
+        background-color: color(Success);
+      }
+    }
+    @at-root .generator_input-radio:disabled + & {
+      @include radioStyle {
+        background-color: color(WhiteGray);
+      }
+    }
+  }
+  &_text-unit {
+    flex-grow: 1;
+    margin: 0 5px;
+    font-size: 1.05rem;
+    text-align: right;
+  }
+}

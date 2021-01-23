@@ -1,0 +1,44 @@
+{
+  "editor.tokenColorCustomizations" : { "semanticHighlighting" : true }, 
+  "editor.rulers": [80, 120], // 編輯器參考線
+  "editor.wordWrap": "on", // 編輯視窗自動換行
+  "editor.tabSize": 2, // TAB的大小
+  "editor.minimap.maxColumn": 90, // 迷你地圖的大小
+  "editor.minimap.renderCharacters": false, // 迷你地圖要不要真實渲染
+  "editor.fontSize": 13.5, // 字形大小
+  "editor.fontFamily": "'Fira Code', 'Source Code Pro'", // 字形設定
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05'", // Fira Code 的連號符設定
+  "emmet.triggerExpansionOnTab": true,
+  "liveServer.settings.port": 8080, // 及時預覽的PORT
+  "liveSassCompile.settings.generateMap": false, // 要不要轉譯出MAP
+  // 轉譯SCSS的位置
+  "liveSassCompile.settings.formats": [
+    // This is Default.
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/dist"
+    },
+    // You can add more
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/style"
+    }
+  ],
+  // CSS自動前綴
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  // Pug 相關
+  "livePugCompiler.savePath": "./", // 轉譯PUG的位置
+  "pugbeautify.fillTab": false, // pug beautify 是否把tab變成space(true為tab)
+  "pugbeautify.omitDiv": true, // pug beautify 是否自動把有class的div標籤隱藏
+  "pugbeautify.tabSize": 2, // pug beautify tab的大小
+  // prettier 的設定
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 是否用 prettier
+  "editor.formatOnSave": false, // 要不要儲存時自動prettier
+  "prettier.tabWidth": 2, // prettier tab的大小
+  "prettier.printWidth": 200, // prettier 超過多少字要換行
+  "prettier.singleQuote": true, // prettier JS是否為單引號
+  "prettier.semi": true, // prettier 是否加上分號
+  // "html.format.wrapAttributes": "force-expand-multiline" // html屬性設定換行
+}

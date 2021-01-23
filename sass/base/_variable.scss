@@ -1,0 +1,26 @@
+//- Var
+$color: (
+  Primary: #1b262c,
+  Secondary: #0f4c81,
+  Success: #18b0b0,
+  Warning: #ffa372,
+  Danger: #ed6663,
+  Sun: yellow,
+  PureBlack: black,
+  Black: lighten(black, 20), //#333333
+  BlackGray: lighten(black, 33), //#545454
+  DarkGray: lighten(black, 45), //#737373
+  Gray: lighten(black, 58), //#949494
+  LightGray: lighten(black, 71), //#B5B5B5
+  WhiteGray: lighten(black, 84), //#D6D6D6
+  White: lighten(black, 96), //#F5F5F5
+  PureWhite: white,
+);
+
+$z-index: (
+  header: 100,
+);
+
+$font-color: color(Black);
+$header-height: 45px;
+

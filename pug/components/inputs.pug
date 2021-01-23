@@ -1,0 +1,218 @@
+//- 基本 input 種類
+mixin title(type, title, css)
+  .generator_box(data-type=type, data-apply="false")
+    h6.generator_subtitle(data-css=css)=title
+    block
+
+mixin group
+  .generator_group
+    block
+
+mixin colorInput(name, type, ph)
+  - const cla = `${name}_${type}`
+  - const attr = {}
+  - attr['data-need'] = 'true'
+  - if (ph) attr['placeholder'] = ph
+  +group
+    input.generator_input.color_box(type="text", class=cla, name=cla)&attributes(attr)
+    input.generator_input-color.color_box(type="color")
+
+mixin rangeInput(name, type, value, need, ph)
+  - const cla = `${name}_${type}`
+  - const attr = {}
+  - if (need) attr['data-need'] = 'true'
+  - if (ph) attr['placeholder'] = ph
+  +group
+    input.generator_input.range_box(type="text", class=cla, name=cla)&attributes(attr)
+    input.generator_input-range.range_box(type="range", min=value[0], max=value[1], step=value[2], value="0")
+
+mixin checkInput(name, type, change)
+  - const cla = `${name}_${type}`
+  - const attr = {}
+  - if (change) attr['data-change'] = 'true'
+  +group
+    input.generator_input-checkbox(type="checkbox", id=cla, name=cla)&attributes(attr)
+    label.generator_label-checkbox(for=cla)
+      span.generator_text-no NO
+      span.generator_text-yes YES
+
+mixin radioInput(name, type, value, text, change)
+  - const cla = `${name}_${type}`
+  +group
+    if (type === 'bdrs')
+      span.generator_text-unit 單位
+    - for (let i = 0; i < value.length; i++)
+      - const attr = {}
+      - if (change) attr['data-change'] = 'true'
+      - if (i === 0) attr['checked'] = 'checked'
+      input.generator_input-radio(type="radio", id=`${cla}_${i+1}`, class=cla, name=cla, value=value[i])&attributes(attr)
+      label.generator_label-radio(for=`${cla}_${i+1}`)=text[i].toUpperCase()
+
+mixin textInput(name, type, ph)
+  - const cla = `${name}_${type}`
+  - const attr = {}
+  - attr['data-need'] = 'true'
+  - if (ph) attr['placeholder'] = ph
+  +group
+    input.generator_input(type="text", class=cla, name=cla)&attributes(attr)
+
+//- 通用 css type input
+mixin typeBgc(name)
+  - const type = 'bgc'
+  +title(type, '背景顏色', 'background-color')
+    +colorInput(name, type, '顏色')
+    +rangeInput(name, type, [0, 1, 0.1], false, '透明')
+
+mixin typeColor(name)
+  - const type = 'c'
+  +title(type, '文字顏色', 'color')
+    +colorInput(name, type, '顏色')
+    +rangeInput(name, type, [0, 1, 0.1], false, '透明')
+
+mixin typeFz(name)
+  - const type = 'fz'
+  +title(type, '文字大小', 'font-size')
+    +rangeInput(name, type, [10, 30, 1], true)
+
+mixin typeOpacity(name)
+  - const type = 'opa'
+  +title(type, '透明度', 'opacity')
+    +rangeInput(name, type, [0, 1, 0.1], true)
+
+mixin typeBdrs(name)
+  - const type = 'bdrs'
+  +title(type, '圓角', 'border-radius')
+    +rangeInput(name, type, [0, 50, 1], true)
+    +radioInput(name, type, ['px', '%'], ['px', '%'])
+
+mixin typeBorder(name)
+  - const type = 'bd'
+  +title(type, '邊框', 'border')
+    +colorInput(name, type, '顏色')
+    +rangeInput(name, type, [0, 5, 1], true, '粗細')
+
+mixin typeShadow(name)
+  - const type = 'sha'
+  +title(type, '陰影', 'box-shadow')
+    +colorInput(name, type, '顏色')
+    +rangeInput(name, type, [0, 1, 0.1], false, '透明')
+    +rangeInput(name, type, [-10, 10, 1], true, '距離')
+    +rangeInput(name, type, [0, 20, 1], true, '模糊')
+
+mixin typeDisplay(name)
+  - const type = 'dp'
+  +title(type, '隱藏區塊', 'display')
+    +checkInput(name, type, true)
+
+//- 特殊 css type input
+mixin typeBlur(name)
+  - const type = 'blur'
+  +title(type, '模糊化', 'filter:')
+    +rangeInput(name, type, [0, 5, 1], true)
+
+mixin typePosition(name)
+  - const type = 'posi'
+  +title(type, '位置', 'top, left')
+    +rangeInput(name, type, [-300, 1000, 1], true, '上方')
+    +rangeInput(name, type, [-1000, 200, 1], true, '左方')
+
+mixin typeSize(name)
+  - const type = 'size'
+  +title(type, '大小', 'width, height')
+    +textInput(name, type, '寬度')
+    +textInput(name, type, '高度')
+
+mixin typeImage(name, type)
+  //- dcbgi, pcoinbgi, tlbgi
+  +title(type, '背景圖', 'background-image')
+    +textInput(name, type, '圖片網址')
+
+mixin typeImgRepeat(name)
+  - const type = 'tlbgirep'
+  +title(type, '不要重複', 'background-repeat')
+    +checkInput(name, type, true)
+
+mixin typeImgPosition(name)
+  - const type = 'tlbgiposi'
+  +title(type, '位置', 'background-position')
+    +rangeInput(name, type, [0, 100, 1], true, '左方')
+
+mixin typeUp(name, type)
+  //- up, boxup
+  +title(type, '上移', '')
+    +checkInput(name, type, true)
+
+mixin typeOpen(name)
+  - const type = 'open'
+  +title(type, '頻道展開', '')
+    +radioInput(name, type, ['no', 'top', 'right'], ['不展開', '向上', '向右'], true)
+
+mixin typeFTPosi(name)
+  - const type = 'ftposi'
+  +title(type, '頻道位置', '')
+    +radioInput(name, type, ['no', 'right'], ['原處', '往右放'], true)
+
+mixin typeToIcon(name)
+  - const type = 'toicon'
+  +title(type, '圖示化', '')
+    +checkInput(name, type, true)
+
+mixin typeCountPosi(name)
+  - const type = 'countposi'
+  +title(type, '圖示化的未讀位置', '')
+    +radioInput(name, type, ['right', 'left', 'top'], ['右邊', '左邊', '上面'])
+
+//- 
+//- 按照 list 產出 input
+mixin createInputFromList(list, name)
+  each cssType in list
+    - const typeIsImage = cssType === 'dcbgi' || cssType === 'pcoinbgi' || cssType === 'tlbgi'
+    - const typeIsUp = cssType === 'up'|| cssType === 'boxup'
+    if (cssType === 'bgc')
+      +typeBgc(name)
+    if (cssType === 'c')
+      +typeColor(name)
+    if (cssType === 'fz')
+      +typeFz(name)
+    if (cssType === 'opa')
+      +typeOpacity(name)
+    if (cssType === 'bdrs')
+      +typeBdrs(name)
+    if (cssType === 'bd')
+      +typeBorder(name)
+    if (cssType === 'sha')
+      +typeShadow(name)
+    if (cssType === 'dp')
+      +typeDisplay(name)
+    if (cssType === 'blur')
+      +typeBlur(name)
+    if (cssType === 'posi')
+      +typePosition(name)
+    if (cssType === 'size')
+      +typeSize(name)
+    if (typeIsImage)
+      +typeImage(name, cssType)
+    if (cssType === 'tlbgirep')
+      +typeImgRepeat(name)
+    if (cssType === 'tlbgiposi')
+      +typeImgPosition(name)
+    if (typeIsUp)
+      +typeUp(name, cssType)
+    if (cssType === 'open')
+      +typeOpen(name)
+    if (cssType === 'ftposi')
+      +typeFTPosi(name)
+    if (cssType === 'toicon')
+      +typeToIcon(name)
+    if (cssType === 'countposi')
+      +typeCountPosi(name)
+
+//- 包裝
+mixin generator(list)
+  .generator
+    each item, index in list
+      - const { name, title, subtitle, csstype: list } = item
+      .generator_container(id=name)
+        h5.generator_title(data-selector=subtitle)=title
+        .generator_body
+          +createInputFromList(list, name)

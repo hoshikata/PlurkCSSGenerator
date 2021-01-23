@@ -1,0 +1,484 @@
+//----- 主控台
+.review {
+  #dashboard_holder {
+    width: 98%;
+    max-width: 980px;
+    min-width: 580px;
+    position: relative;
+    margin: 0 auto 21px;
+    padding: 35px 0 20px;
+  }
+  #plurk-dashboard {
+    color: #666;
+    overflow: visible;
+    line-height: 15px;
+    height: 1%;
+  }
+  #plurk-dashboard h2 {
+    display: block;
+    padding: 2px;
+    font-size: 14px;
+  }
+  #plurk-dashboard p {
+    margin: 0;
+  }
+  #plurk-dashboard a {
+    color: #e88d43;
+  }
+  #dashboard_holder a:hover {
+    text-decoration: underline;
+  }
+  #plurk-dashboard::after,
+  .segment-content::after {
+    content: '';
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+  }
+  #plurk-dashboard .dash-group-form,
+  #plurk-dashboard .dash-group-right {
+    position: relative;
+    float: right;
+    width: 67%;
+  }
+  #plurk-dashboard .dash-group-left {
+    position: relative;
+    float: left;
+    width: 33%;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
+  #plurk-dashboard .dash-segment {
+    float: left;
+    position: relative;
+  }
+  .dash-segment .segment-content {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background: #fff;
+  }
+  #plurk-dashboard .dash-segment-post,
+  #plurk-dashboard .dash-segment-stats {
+    width: 100%;
+  }
+  .friend_man {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 6px 10px;
+    overflow: hidden;
+    cursor: pointer !important;
+    transition: background-color 300ms;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    border-radius: 5px;
+    color: white !important;
+  }
+  .friend_man::before {
+    width: 16px;
+    margin-right: 5px;
+    margin-left: -1px;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  // 發噗區
+  #plurk-dashboard .dash-group-form .segment-content {
+    min-height: 96px;
+    overflow: visible;
+  }
+  .plurkForm::after,
+  .input_holder::after,
+  .share_list::after,
+  .icons_holder::after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+  }
+  .plurkForm {
+    position: relative;
+    padding: 3px 3px 0;
+  }
+  .submit_img_color {
+    background: #ff574d;
+  }
+  .submit_img {
+    float: right;
+    width: 80px;
+    height: 38px;
+    margin-left: 6px;
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 38px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+  }
+  .input_holder {
+    float: none;
+    width: auto;
+    overflow: hidden;
+    border: #eee 1px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .qual_holder {
+    position: relative !important;
+    padding: 3px;
+    font-size: 24px;
+  }
+  .dd_img {
+    cursor: pointer;
+  }
+  .m_qualifier {
+    position: relative;
+    padding: 3px 6px 4px;
+    border-radius: 5px;
+    line-height: 100%;
+    background-color: #ccc;
+    color: #fff;
+  }
+  .m_qualifier i::before {
+    top: 0;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .pif-dropdown::before {
+    content: '▼';
+  }
+  .textarea_holder {
+    float: none;
+    width: auto;
+    overflow: hidden;
+  }
+  .textarea_holder textarea {
+    display: block;
+    clear: none;
+    width: 100%;
+    height: 37px;
+    padding: 0 0 0 2px !important;
+    margin: 0 !important;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 25px;
+    font-weight: inherit;
+    line-height: 37px;
+    border: 0;
+    box-shadow: none;
+    border-radius: 7px;
+    background: #fff;
+  }
+  .icons_holder {
+    float: left;
+    margin: 4px 0 4px;
+    overflow: hidden;
+    font-size: 12px;
+  }
+  .icons_holder li {
+    position: relative;
+    float: left;
+    width: 32px;
+    margin: 4px 6px 0 0;
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+  }
+  .icons_holder .pif-emoticon,
+  .icons_holder .pif-media,
+  .icons_holder .pif-sync,
+  .icons_holder .pif-anynomous,
+  .icons_holder .pif-privacy {
+    &::before {
+      font-size: 26px;
+    }
+  }
+  .icons_holder .pif-emoticon {
+    color: #fcd254;
+  }
+  .icons_holder .pif-emoticon:hover {
+    color: #e7b237;
+  }
+  .icons_holder .pif-media {
+    color: #8bcfd6;
+  }
+  .icons_holder .pif-media:hover {
+    color: #7ab1b7;
+  }
+  .icons_holder .pif-sync {
+    color: #96cb84;
+  }
+  .icons_holder .pif-sync:hover {
+    color: #81ac72;
+  }
+  .icons_holder .pif-anynomous {
+    color: #a98ab8;
+  }
+  .icons_holder .pif-anynomous:hover {
+    color: #997aa8;
+  }
+  .icons_holder .pif-privacy {
+    color: #f4cb35;
+  }
+  .icons_holder .pif-privacy:hover {
+    color: #e7b237;
+  }
+  .plurk_to,
+  .plurkForm .whispers_hint,
+  .priv,
+  .plurk_schedule {
+    float: right;
+    font-size: 13px;
+    line-height: 17px;
+    opacity: 0.6;
+    margin-top: 6px;
+    text-align: right;
+  }
+  .char_updater {
+    clear: both;
+    font-size: 12px;
+    display: block;
+    line-height: 18px;
+    opacity: 0.75;
+  }
+
+  // 個人資訊區
+  #plurk-dashboard .dash-segment-profile {
+    width: 100%;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile {
+    height: 86px;
+    position: relative;
+    text-align: left;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile img.profile-pic {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    border-radius: 8px;
+  }
+  #plurk-dashboard.own img.profile-pic {
+    cursor: pointer;
+  }
+  #profile_pic {
+    margin-bottom: 5px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile #full_name {
+    margin-left: 92px;
+    padding-top: 1px;
+    font-size: 17px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile #full_name .display_name {
+    display: block;
+    margin-bottom: 1px;
+    line-height: 1.1em;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile #full_name .nick_name {
+    display: block;
+  }
+  .nick_name {
+    opacity: 0.85;
+    font-size: 12px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile .profile-info {
+    position: absolute;
+    bottom: 0;
+    margin-left: 92px;
+    opacity: 0.85;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile .profile-icons {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    right: 2px;
+    font-size: 0;
+    white-space: nowrap;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile .profile-icons .premium {
+    display: inline-block;
+    margin-left: 5px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-profile .profile-icons img {
+    width: auto;
+    height: 20px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-additional-info {
+    padding: 5px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-additional-info #about_me {
+    padding-bottom: 10px;
+    line-height: 1.4em;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-additional-info #location_container,
+  #plurk-dashboard .dash-segment-profile #dash-additional-info #relationship_container {
+    margin-top: 10px;
+  }
+  #plurk-dashboard .dash-segment-profile #dash-additional-info #private_plurk {
+    margin-bottom: 10px;
+  }
+  .friend_man.private_plurk {
+    background-color: #207298;
+  }
+  .friend_man.send_gift {
+    background-color: #e8ad40;
+  }
+
+  // 統計區
+  #plurk-dashboard #dash-stats .dash-stats-karma {
+    float: left;
+    width: 37%;
+    min-width: 210px;
+    margin: 15px 0;
+    text-align: center;
+  }
+  .karma_hover {
+    position: relative;
+    margin: 10px 0 10px 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 28px;
+    line-height: 30px;
+    white-space: nowrap;
+  }
+  .karma_hover .karma_red {
+    color: #c60900;
+  }
+  .karma_hover .karma_green {
+    color: #00ff24;
+  }
+  .karma_hover #karma_arrow {
+    display: none;
+    margin-top: -8px;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  #plurk-dashboard #dash-stats table {
+    float: none;
+    width: auto;
+    height: 72px;
+    overflow: hidden;
+  }
+  #plurk-dashboard #dash-stats table th {
+    padding: 8px 3px 0 0;
+    opacity: 0.7;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: bottom;
+  }
+  #plurk-dashboard #dash-stats table td {
+    vertical-align: bottom;
+    padding: 8px 5px 0 0;
+    color: #333;
+    font-size: 15px;
+    width: 26%;
+    white-space: nowrap;
+  }
+
+  // 徽章區
+  #plurk-dashboard .dash-segment-award {
+    clear: both;
+  }
+  #plurk-dashboard .dash-segment-award .segment-content {
+    background: none;
+  }
+  #plurk-dashboard .dash-segment-award .segment-content .award_bar div {
+    float: left;
+    width: 39px;
+    height: 39px;
+    margin: 0 8px 6px 0;
+    cursor: default;
+    font-weight: bold;
+    text-align: center;
+  }
+  .cmp_9 {
+    width: 39px;
+    height: 39px;
+    font-size: 1px;
+    background: transparent url('../image/award.png') 0 -2420px no-repeat;
+  }
+  #plurk-dashboard .link_arrow {
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 11px;
+    text-align: left;
+  }
+  #plurk-dashboard .link_arrow i {
+    margin-right: 5px;
+  }
+  .pif-arrow-points::before {
+    font-size: 15px;
+    margin-right: 0;
+  }
+
+  // 好友粉絲區
+  #plurk-dashboard #dash-friends-pics,
+  #plurk-dashboard #dash-fans-pics {
+    margin: 10px 0 0 0;
+  }
+  .show_all_friends,
+  .show_mutual_friends {
+    float: left;
+    margin: 0 15px 5px 0;
+  }
+  .friend_holder {
+    clear: both;
+  }
+  .friend_holder ul li {
+    margin: 5px 2px;
+    float: left;
+  }
+  .friend_holder img {
+    width: 35px;
+    height: 35px;
+    border: 0;
+  }
+
+  // 好友區
+  #plurk-dashboard .dash-segment-friends {
+    width: 49.3%;
+    margin-right: 1.4%;
+  }
+  #plurk-dashboard .dash-segment-friends #dash-friends #friend_managment {
+    margin-top: 5px;
+    text-align: center;
+  }
+  .friend_man.add_friend,
+  .friend_man.accpet {
+    background-color: #7aa716;
+  }
+  .friend_man.add_friend:hover,
+  .friend_man.accpet:hover {
+    background-color: #6a9706;
+  }
+
+  // 粉絲區
+  #plurk-dashboard .dash-segment-fans {
+    width: 49.3%;
+  }
+  #plurk-dashboard .dash-segment-fans #dash-fans #fan_managment {
+    margin-top: 5px;
+    text-align: center;
+  }
+  .friend_man.unfollow,
+  .friend_man.add_follow,
+  .friend_man.add-as-fan {
+    background-color: #207298;
+  }
+  .friend_man.unfollow:hover,
+  .friend_man.add_follow:hover,
+  .friend_man.add-as-fan:hover {
+    background-color: #106288;
+  }
+}

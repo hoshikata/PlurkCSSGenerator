@@ -1,0 +1,249 @@
+$mode-label-width: 32px;
+$mode-label-height: 16px;
+$mode-circle-width: $mode-label-height - 4px;
+$sidebar-height: 21px;
+
+.header {
+  display: flex;
+  align-items: center;
+  z-index: map-get($z-index, header);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100%, $header-height);
+  padding: 0 0 0 40px;
+  box-sizing: border-box;
+  background-image: linear-gradient(160deg, rgba(color(Secondary), 0.9), rgba(color(Primary), 0.9) 300%);
+  color: color(White);
+  &_title {
+    flex-grow: 1;
+    padding-left: 20px;
+    font-family: 'Baloo Da 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: currentColor;
+    &-small {
+      padding-left: 5px;
+      font-size: 0.5em;
+      font-weight: 300;
+    }
+  }
+}
+
+.logo {
+  position: relative;
+  @include size(40px);
+  box-sizing: border-box;
+  overflow: hidden;
+  transform: scale(0.8);
+  border-radius: 5px;
+  border: 3px solid currentColor;
+  letter-spacing: 0;
+  &_main,
+  &_sub {
+    position: absolute;
+    top: -1px;
+    right: 2px;
+    font-family: 'Baloo Da 2', cursive;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    color: currentColor;
+  }
+  &_main {
+    top: -1px;
+    left: -1px;
+    @include size(35px);
+    transform: rotate(-90deg);
+    font-size: 35px;
+    line-height: 35px;
+    color: currentColor;
+  }
+  &_cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size(100%);
+  }
+}
+
+.nav {
+  display: flex;
+  position: relative;
+  height: 100%;
+  margin-right: 10px;
+  &_btn {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 10px;
+    padding: 0 10px;
+    @include Noto;
+    font-size: 1.1rem;
+    font-weight: 400;
+    background-color: transparent;
+    color: color(White);
+    &-active,
+    &:hover {
+      &.plurkbg_button,
+      &.plurkbox_button {
+        background-color: rgba(color(Warning), 0.5);
+      }
+      &.reset_button {
+        background-color: rgba(color(Danger), 0.5);
+      }
+      &.export_button {
+        background-color: rgba(color(Success), 0.5);
+      }
+      // &.tip_button,
+      &.github_button {
+        background-color: rgba(color(LightGray), 0.5);
+      }
+    }
+  }
+}
+
+.github_button {
+  width: 20px;
+  margin-right: 0;
+  background: url('../image/github.png') no-repeat center center;
+  background-size: 20px;
+}
+.plurkbg {
+  &_list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px 20px;
+    visibility: hidden;
+    transform: translateY(100%);
+    border-radius: 0 0 5px 5px;
+    background-color: rgba(color(PureWhite), 1);
+    color: color(Black);
+    box-shadow: 3px 3px 6px rgba(color(Black), 0.2);
+    @at-root .plurkbg-open & {
+      visibility: visible;
+    }
+  }
+  &_item {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+    &:hover {
+      opacity: 0.8;
+    }
+    & + & {
+      margin-top: 10px;
+    }
+  }
+  &_label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+  }
+  &_preview {
+    display: inline-block;
+    @include size(20px);
+    margin-left: 5px;
+    border-radius: 3px;
+    background: color(Black);
+  }
+  &_image {
+    @include size(60px, 40px);
+    background-position: center center;
+    background-size: cover;
+  }
+  &_clear {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    color: color(Gray);
+    &:hover {
+      color: color(BlackGray);
+    }
+  }
+}
+
+// .mode {
+//   position: relative;
+//   &_input {
+//     display: none;
+//   }
+//   &_label {
+//     display: block;
+//     z-index: 1;
+//     position: relative;
+//     @include size($mode-label-width, $mode-label-height);
+//     margin: 0 20px;
+//     cursor: pointer;
+//     border-radius: 10px;
+//     background-color: color(White);
+//     transition: 0.5s;
+//     &::after {
+//       content: '';
+//       z-index: 2;
+//       position: absolute;
+//       top: 50%;
+//       left: $mode-label-width - $mode-circle-width - 2px;
+//       @include size($mode-circle-width);
+//       transform: translateY(-50%);
+//       border-radius: 50%;
+//       background-color: color(Primary);
+//       transition: all 0.5s, background-color 0s;
+//       @at-root .mode_input:checked + & {
+//         left: 2px;
+//       }
+//     }
+//     &:hover::after {
+//       background-color: color(Warning);
+//       @at-root .mode_input:checked + & {
+//         background-color: color(Warning);
+//       }
+//     }
+//   }
+//   &_sun {
+//     z-index: 0;
+//     position: absolute;
+//     top: 50%;
+//     left: 100%;
+//     @include size(16px);
+//     transform: translate(-80%, -50%);
+//     border-radius: 50%;
+//     background-color: currentColor;
+//     box-shadow: 0 0 6px currentColor;
+//     color: color(Sun);
+//     transition: 0.5s;
+//     @at-root .mode_input:checked ~ & {
+//       left: 0;
+//       transform: translate(-20%, -50%);
+//       background-color: transparent;
+//       box-shadow: inset 4px -4px 0 currentColor;
+//       color: color(White);
+//     }
+//   }
+// }
+
+.sidebar {
+  @include size(25px, $sidebar-height);
+  align-self: flex-start;
+  margin-left: 20px;
+  padding: ($header-height - $sidebar-height) / 2 15px;
+  cursor: pointer;
+  color: color(White);
+  &::before {
+    content: '';
+    display: block;
+    @include size(100%, 3px);
+    transform: translateY(1px);
+    border-radius: 5px;
+    background-color: currentColor;
+    box-shadow: 0 8px 0 currentColor, 0 16px 0 currentColor;
+  }
+  &-active,
+  &:hover {
+    background-color: rgba(color(Primary), 0.5);
+  }
+}

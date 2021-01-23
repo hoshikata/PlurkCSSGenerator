@@ -1,0 +1,390 @@
+$th-index: (
+  timeline-cnt: 2,
+  timeline-bg: 1,
+  timeline-timeshow: 1,
+  time_show: 1,
+  dynamic_logo: 1,
+  bottom-line: -100,
+);
+
+//----- 河道
+.review {
+  #timeline_holder {
+    background: none;
+  }
+  .timeline-holder {
+    padding: 0 !important;
+    overflow: visible;
+    height: 386px;
+    position: relative;
+    width: 100%;
+    cursor: move;
+  }
+  .timeline-cnt,
+  .timeline-bg,
+  .timeline-cnt .block_cnt,
+  .timeline-bg .block_bg {
+    position: absolute;
+    height: 100% !important;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: visible !important;
+  }
+  // 讓預覽河道可以滑動 **
+  .timeline-cnt .block_cnt {
+    overflow-x: scroll !important;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  // 河道噗
+  .timeline-cnt {
+    z-index: map-get($th-index, timeline-cnt);
+  }
+  .timeline-cnt .display {
+    width: 380px;
+  }
+  .timeline-cnt .plurk {
+    position: absolute;
+    cursor: pointer;
+  }
+  .plurk {
+    color: #111;
+    white-space: nowrap;
+  }
+  .plurk td {
+    vertical-align: top;
+    white-space: nowrap !important;
+  }
+  // 頭像
+  .td_img {
+    width: 20px;
+  }
+  .p_img,
+  .p_img img {
+    width: 20px;
+    height: 20px;
+  }
+  // 回應數
+  .td_response_count {
+    width: 15px;
+    height: 30px !important;
+  }
+  .new .response_count {
+    background: #fb0047;
+    color: #fff;
+  }
+  .response_count {
+    padding: 1px 4px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fff;
+  }
+  // 噗文內容
+  .plurk_cnt {
+    position: relative;
+    padding: 2px 0 0;
+    // transition: background-color 5s;
+    font-weight: normal;
+    line-height: 1.3;
+    box-shadow: 1px 1px 3px -3px #000;
+    background-color: #fff;
+    color: #111;
+  }
+  .timeline-cnt .display table {
+    width: 100%;
+  }
+  // 發噗時間
+  .timeline-cnt .plurk .time {
+    position: absolute;
+    bottom: 7px;
+    left: 9px;
+    transform: scale(0.95);
+    transform-origin: left;
+    font-size: 12px;
+  }
+  .timeline-cnt .plurk .time a {
+    color: #afb8cc;
+  }
+  // 暱稱
+  .td_qual {
+    width: 0%;
+    padding: 2px 5px 2px 5px;
+  }
+  .name {
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .name:hover {
+    text-decoration: underline;
+  }
+  .q_replurks {
+    background: #3b8610;
+  }
+  .qualifier {
+    padding: 0 3px 0 3px;
+    color: #fff;
+    margin: 0 3px 0 4px;
+    border-radius: 3px;
+  }
+  .q_replurks i {
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  .porn-icon {
+    display: inline-block;
+    margin: 0 4px 0 1px;
+  }
+  .porn-icon::before {
+    content: '';
+    position: relative;
+    top: 6px;
+    left: 0;
+    @include size(20px);
+    margin-top: -6px;
+    line-height: 0;
+    border-radius: 50%;
+    background-color: #ff3600;
+  }
+  .porn-icon::after {
+    content: 'R18';
+    position: relative;
+    top: -1px;
+    left: -18px;
+    font-size: 9px;
+    letter-spacing: 0;
+    color: #fff;
+  }
+  // 噗文
+  .td_cnt {
+    width: 100%;
+    padding: 2px 5px 5px 0;
+  }
+  .text_holder {
+    position: relative;
+    min-width: 48px;
+    white-space: normal !important;
+    background: none;
+  }
+  .timeline-cnt .plurk .text_holder {
+    width: 180px;
+    height: auto;
+    min-height: 1.3em;
+    white-space: normal;
+    overflow: hidden !important;
+  }
+  .timeline-cnt .display .text_holder {
+    width: 100%;
+    max-width: 80vw;
+    min-width: 180px;
+    height: auto !important;
+    min-height: 2em;
+    max-height: none !important;
+    white-space: normal;
+  }
+  #timeline_holder .plurk .text_holder {
+    max-height: 37.210875px;
+  }
+  // Hashtag
+  .plurk_content a.hashtag,
+  .plurk .text_holder a.hashtag {
+    margin: 0 0.1em;
+    font-size: 0.9em;
+    border-radius: 4px;
+    color: #cf682f;
+  }
+  .plurk_content a.hashtag:hover,
+  .plurk .text_holder a.hashtag:hover {
+    margin: auto -0.1em;
+    padding: 0.05em 0.2em;
+    text-decoration: none;
+    background-color: #cf682f;
+    color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  }
+  // 表符
+  .emoticon,
+  .emoticon_my,
+  .emo_campaign,
+  .emoticons_campaign {
+    vertical-align: top;
+  }
+  // 連結
+  .plurk a.ex_link {
+    color: #0435d2;
+    text-decoration: none;
+  }
+  .plurk a.ex_link:hover {
+    text-decoration: underline;
+  }
+  // 有圖連結
+  .plurk a.meta {
+    position: relative;
+    display: block;
+    margin: 1px 4px 4px 0px;
+    padding: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    border: #e5ebfb 1px solid;
+    border: rgba(33, 83, 210, 0.08) 1px solid;
+    border-radius: 7px;
+    background: #f6f8fe;
+    background: rgba(33, 83, 210, 0.04);
+    color: #2153d2;
+  }
+  .plurk a.meta img {
+    float: left;
+    height: 48px;
+    max-width: 80px;
+    margin: 0 5px 0 0;
+    border-radius: 5px;
+  }
+  .plurk a.meta:hover {
+    text-decoration: none;
+    border: #d4dff7 1px solid;
+    border: rgba(33, 83, 210, 0.12) 1px solid;
+    background: #edf1fc;
+    background: rgba(33, 83, 210, 0.08);
+  }
+  // 圖片
+  .plurk a.pictureservices {
+    position: relative;
+    display: inline-block;
+    max-width: 200px;
+    margin: 1px 2px 4px 0px;
+    overflow: hidden;
+    cursor: pointer;
+    vertical-align: text-top;
+    border: none;
+    border-radius: 5px;
+  }
+  .plurk a.pictureservices:hover {
+    text-decoration: none;
+  }
+  .plurk a.pictureservices img {
+    display: block;
+    max-width: 240px;
+    height: 64px;
+  }
+  .plurk a.pictureservices:hover img {
+    filter: brightness(90%);
+  }
+
+  // 控制列
+  .manager::after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+  }
+  .timeline-cnt .plurk .manager {
+    display: none;
+  }
+  .link_extend .manager,
+  .plurk_box .manager {
+    display: block !important;
+  }
+  .manager {
+    float: right;
+    margin-top: 4px;
+    padding: 3px 4px 0;
+    color: #afb8cc;
+  }
+  .manager > a {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 2px 5px 3px;
+    cursor: pointer;
+    text-decoration: none !important;
+    border-radius: 3px;
+    color: #afb8cc;
+  }
+  .manager > a.gift {
+    margin-left: 10px;
+  }
+  .manager > a:hover {
+    color: #fff !important;
+    background: #3667a5 !important;
+  }
+  .manager .mute-off:hover {
+    background: #000 !important;
+  }
+  .manager .replurk-off:hover {
+    background: #45b03f !important;
+  }
+  .manager .like-off:hover {
+    background: #e8443d !important;
+  }
+  .manager .mark-off:hover {
+    background: #5abac5 !important;
+  }
+
+  // 時間軸
+  .timeline-bg .block_bg .bottom_start,
+  .timeline-timeshow {
+    position: absolute;
+    padding: 0 4px;
+    font-size: 12px;
+    bottom: -8px;
+    white-space: nowrap;
+  }
+  .timeline-bg {
+    z-index: map-get($th-index, timeline-bg);
+  }
+  .bottom-line {
+    z-index: map-get($th-index, bottom-line);
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  .bottom_start {
+    background: #fff;
+    color: #ccc;
+    border-radius: 5px;
+  }
+
+  // 噗下時間
+  .timeline-timeshow {
+    z-index: map-get($th-index, timeline-timeshow);
+    border-radius: 5px;
+    background: #ff574d;
+    color: #fff;
+  }
+  #time_show {
+    z-index: map-get($th-index, time_show);
+    position: absolute;
+    margin-top: -9px;
+    padding: 0 4px;
+    font-size: 11px;
+    white-space: nowrap;
+    border-radius: 5px;
+  }
+  #time_show span {
+    color: #fff;
+  }
+  .evening,
+  .night,
+  .day,
+  .morning {
+    background: #ff574d;
+  }
+
+  // 噗浪生物
+  #dynamic_logo {
+    z-index: map-get($th-index, dynamic_logo);
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    margin-top: 12px;
+    cursor: move;
+    white-space: nowrap;
+  }
+}

@@ -1,124 +1,76 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="zh-Hant-TW")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Plurk CSS Generator
-    link(rel="stylesheet", href="style/style.min.css")
+    link(rel="stylesheet", href="style/main.min.css")
+    style#reviewStyle
   body
-    //- 導覽列
-    header.header
-      .container
-        .row.por
-          .col-4
-            .logo
-              .logo_block
-                span P
-                span css.
-                .cover
-              span.title Plurk CSS Generator
-          .col-1
-            .toggler
-              span.toggler_item.item_top
-              span.toggler_item.item_mid
-              span.toggler_item.item_bottom
-    //- Main-Space
-    .wrap
-      //- 主選單
-      .menu
-        ul.menu_list.menu_toggle
-          li.item.active 河道
-          li.item 噗內回應
-          //- li.item 時間軸
-          li.item 控制列
-          li.item 主控台左側
-          li.item 主控台右側
-          li.item 其他項目
-          li.item 輸出
-        //- ul.info
-          li.icon
-            a.plurk_icon(href="javascript:;" target="_blank" data-tip="作者噗浪") P
-      .main
-        //- 河道的噗區塊
-        #th_block.control.display
-          //- 次選單
-          .menu.menu_sub
-          //- 預覽區
-          #review_th.review
-            .review_background
-              .row.m-0
-                .bgc_selector
-                  input#selector_th(type="color", name="selector")
-                  label.selector(for="selector_th") 預覽背景顏色選擇
-            .container
-              include ./pug/review_th.pug
-          //- 輸入區
-          .enter_block
-        #fh_block.control
-          .menu.menu_sub
-          #review_fh.review
-            .review_background
-              .row.m-0
-                .bgc_selector
-                  input#selector_fh(type="color", name="selector")
-                  label.selector(for="selector_fh") 預覽背景顏色選擇
-            .container.clearfix
-              include ./pug/review_fh.pug
-          .enter_block
-        //- #tt_block.control
-          .menu.menu_sub
-          #review_tt.review
-            .container.clearfix
-          .enter_block
-        #tc_block.control
-          .menu.menu_sub
-          #review_tc.review
-            .review_background
-              .row.m-0
-                .bgc_selector
-                  input#selector_tc(type="color", name="selector")
-                  label.selector(for="selector_tc") 預覽背景顏色選擇
-            .container.clearfix
-              include ./pug/review_tc.pug
-          .enter_block
-        #dhl_block.control
-          .menu.menu_sub
-          #review_dhl.review_dh.review
-            .review_background
-              .row.m-0
-                .bgc_selector
-                  input#selector_dhl(type="color", name="selector")
-                  label.selector(for="selector_dhl") 預覽背景顏色選擇
-            .container.clearfix
-              include ./pug/review_dh.pug
-          .enter_block
-        #dhr_block.control
-          .menu.menu_sub
-          #review_dhr.review_dh.review
-            .review_background
-              .row.m-0
-                .bgc_selector
-                  input#selector_dhr(type="color", name="selector")
-                  label.selector(for="selector_dhr") 預覽背景顏色選擇
-            .container.clearfix
-              include ./pug/review_dh.pug
-          .enter_block
-        #other_block.control
-          .menu.menu_sub
-          .enter_block
-        #export.control
-          .btn_Group
-            button#create.btn 生成
-              .btn_icon
-                span
-                span
-            button#select.btn 全選
-              .btn_icon
-                span
-            button#clear.btn.btn-danger 清除
-              .btn_icon
-                span
-                span
-          .container
-            textarea#export_area.export(name="export")
+    include pug/components/inputs.pug
+    include pug/components/lists.pug
+
+    .wrapper
+      header.header
+        .logo
+          span.logo_main P
+          span.logo_sub css.
+          a.logo_cover(href="index.html")
+        h1.header_title Plurk CSS Generator
+          spam.header_title-small v.2
+        nav.nav
+          ul.plurkbg_list
+            li.plurkbg_item
+              label(for="plurkbg_color").plurkbg_label 背景顏色
+                input#plurkbg_color.no-display(type="color")
+                .plurkbg_preview.plurkbg_color
+            li.plurkbg_item
+              label(for="plurkbg_image").plurkbg_label 背景圖片
+                input#plurkbg_image.no-display(type="file" accept="image/*")
+                .plurkbg_preview.plurkbg_image
+              span.plurkbg_clear.cross_btn
+          button.nav_btn.plurkbg_button 預覽背景
+          button.nav_btn.plurkbox_button 隱藏噗內回應
+          button.nav_btn.reset_button 清空所有
+          button.nav_btn.export_button 輸出
+          //- button.nav_btn.tip_button Tip
+          a.nav_btn.github_button(href="https://github.com/hoshikata" target="_blank")
+        //- .mode
+          input#mode_switch.mode_input(type="checkbox")
+          label.mode_label(for="mode_switch")
+          .mode_sun
+        .sidebar.sidebar-active
+      .tools.tools-open
+        .tools_main
+          each list, index in contentList
+            .tools_container(id=`${areaList[index]}_area`, class=index===0?'tools_container-open':'')
+              .tools_generator.customization-scroll
+                +generator(list)
+        .tools_bar.menu
+          ul.menu_list
+            each item, index in menuList
+              li.menu_item(id=`${areaList[index]}_button`, class=index===0?'menu_item-active':'')=item
+      #review.review
+        .review_container.customization-scroll
+          #layout_content.clearfix
+            - const plurk_cut_left = 80
+            - const plurk_cut_width = 500
+            - const plurk_cut_top = 50
+            - const plurk_cut_height = 70
+            include pug/partial/review_th.pug
+            include pug/partial/review_tc.pug
+            include pug/partial/review_dh.pug
+            include pug/partial/review_fh.pug
+      .export
+        .export_control
+          button.export_btn.create_button 生成
+            .export_icon
+          button.export_btn.select_button 全選
+            .export_icon
+          button.export_btn.clear_button 清除
+            .export_icon
+        .export_container
+          textarea.export_code.customization-scroll(spellcheck="false")
+
+
     script(src="script/script.js")

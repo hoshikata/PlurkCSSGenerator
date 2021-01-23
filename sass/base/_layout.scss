@@ -1,0 +1,102 @@
+//- Grid
+// $gridNumber: 12;
+// $gridGutter: 30px;
+// .container {
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   box-sizing: border-box;
+// }
+// .row {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-left: -15px;
+//   margin-right: -15px;
+// }
+// %col-gutter {
+//   box-sizing: border-box;
+//   padding-left: ($gridGutter / 2);
+//   padding-right: ($gridGutter / 2);
+// }
+// @for $i from 1 through $gridNumber {
+//   .col-#{$i} {
+//     width: (100% * ($i / $gridNumber));
+//     @extend %col-gutter;
+//   }
+// }
+
+// 文字選擇時的樣式
+::selection {
+  background-color: color(Secondary);
+  color: color(White);
+}
+//- Tag
+html,
+body {
+  scroll-behavior: smooth; //卷軸平滑捲動
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  background-color: color(White);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 1.9rem;
+  font-weight: 900;
+}
+h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+h4 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+h6 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+p {
+  font-size: 1rem;
+}
+img {
+  vertical-align: middle;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+input,
+select,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  border: none;
+}

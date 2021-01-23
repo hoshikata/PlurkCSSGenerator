@@ -1,0 +1,368 @@
+- 
+  const plurkCntList = [
+    {
+      title: '噗首的普通外觀',
+      subtitle: '.timeline-cnt .plurk_cnt',
+      name: 'plurkcnt_normal',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '噗首被滑鼠移至的外觀',
+      subtitle: '.timeline-cnt .link_extend .plurk_cnt',
+      name: 'plurkcnt_hover',
+      csstype: ['opa'],
+    },
+    {
+      title: '噗首被展開後的外觀',
+      subtitle: '.timeline-cnt .plurk_box .plurk_cnt',
+      name: 'plurkcnt_extend',
+      csstype: ['opa'],
+    },
+    {
+      title: 'R18的噗首外觀',
+      subtitle: '.timeline-cnt .porn:not(.link_extend) .text_holder',
+      name: 'plurkcnt_r18',
+      csstype: ['blur'],
+    },
+    {
+      title: '噗首的頭像',
+      subtitle: '.timeline-cnt .p_img',
+      name: 'plurkcnt_pimg',
+      csstype: ['opa', 'bdrs', 'bd', 'sha'],
+      hidden: true,
+    },
+    {
+      title: '噗的回應數',
+      subtitle: '.timeline-cnt .response_count',
+      name: 'plurkcnt_count',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '噗的未讀回應數',
+      subtitle: '.timeline-cnt .new .response_count',
+      name: 'plurkcnt_newcount',
+      csstype: ['bgc', 'c', 'opa'],
+    },
+    {
+      title: '噗友暱稱',
+      subtitle: '.timeline-cnt .td_qual > span',
+      name: 'plurkcnt_pname',
+      csstype: ['up'],
+    },
+    {
+      title: '噗的圖片',
+      subtitle: '.timeline-cnt .plurk_cnt a.pictureservices',
+      name: 'plurkcnt_pic',
+      csstype: ['opa', 'bdrs', 'sha'],
+    },
+    {
+      title: '噗的有圖連結',
+      subtitle: '.timeline-cnt .plurk_cnt a.meta',
+      name: 'plurkcnt_piclink',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
+    },
+    {
+      title: '噗的有圖連結內的圖片',
+      subtitle: '.timeline-cnt .plurk_cnt a.meta img',
+      name: 'plurkcnt_piclinkimg',
+      csstype: ['opa', 'bdrs'],
+    },
+    {
+      title: '噗的普通連結',
+      subtitle: '.timeline-cnt .plurk_cnt a.ex_link',
+      name: 'plurkcnt_link',
+      csstype: ['c', 'fz'],
+    },
+    {
+      title: '噗的時間顯示',
+      subtitle: '.timeline-timeshow',
+      name: 'timeline_plurktime',
+      csstype: ['bgc', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '時間軸的時間',
+      subtitle: '.bottom_start',
+      name: 'timeline_time',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '時間軸的線',
+      subtitle: '#bottom_line',
+      name: 'timeline_line',
+      csstype: ['bgc', 'opa'],
+    },
+  ];
+
+  const plurkBoxList = [
+    {
+      title: '噗內整體調整',
+      subtitle: '#form_holder',
+      name: 'plurkbox_holder',
+      csstype: ['opa', 'bdrs', 'bd', 'sha'],
+      hidden: true,
+    },
+    {
+      title: '噗內喜歡數',
+      subtitle: '.favorite_count',
+      name: 'plurkbox_favorite',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '噗內轉噗數',
+      subtitle: '.replurk_count',
+      name: 'plurkbox_replurk',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '噗內書籤標籤',
+      subtitle: '.bookmark_info',
+      name: 'plurkbox_bookmark',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '噗內私噗標籤',
+      subtitle: '.private_info',
+      name: 'plurkbox_private',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '噗內回應區',
+      subtitle: '.response_box',
+      name: 'plurkbox_resbox',
+      csstype: ['bgc'],
+    },
+    {
+      title: '回應內容',
+      subtitle: '.response_box .list .plurk_cnt',
+      name: 'plurkbox_reslist',
+      csstype: ['bgc', 'c', 'fz', 'bdrs', 'bd'],
+    },
+    {
+      title: '噗主回應內容',
+      subtitle: '.response_box .list .highlight_owner .plurk_cnt',
+      name: 'plurkbox_ownlist',
+      csstype: ['bgc', 'c', 'fz', 'bdrs', 'bd'],
+    },
+    {
+      title: '噗內暱稱上移',
+      subtitle: '#form_holder .plurk_cnt .td_qual',
+      name: 'plurkbox_listname',
+      csstype: ['boxup'],
+    },
+    {
+      title: '噗內輸入區',
+      subtitle: '.plurk_box .mini_form',
+      name: 'plurkbox_form',
+      csstype: ['bgc'],
+    },
+  ];
+
+  const controlList = [
+    {
+      title: '更新的按鈕',
+      subtitle: '#updater .item a',
+      name: 'control_updatebtn',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '更新的未讀數字',
+      subtitle: '#updater .unread_generic',
+      name: 'control_updatecount',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '頻道的型態',
+      subtitle: '#filter_tab',
+      name: 'control_filterstyle',
+      csstype: ['open', 'ftposi', 'toicon', 'countposi'],
+    },
+    {
+      title: '頻道的普通按鈕',
+      subtitle: '#filter_tab a',
+      name: 'control_filterbtn',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '頻道的選中按鈕',
+      subtitle: '#filter_tab a.filter_selected',
+      name: 'control_filterselect',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '頻道的未讀數字',
+      subtitle: '#filter_tab a .unread_generic',
+      name: 'control_filtercount',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+  ];
+
+  const dashboardLeftList = [
+    {
+      title: '主控台整體',
+      subtitle: '#plurk-dashboard',
+      name: 'dashboard_board',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '主控台內分區',
+      subtitle: '.dash-segment .segment-content',
+      name: 'dashboard_segment',
+      csstype: ['bgc', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '個人資料區整體',
+      subtitle: '.dash-segment-profile .segment-content',
+      name: 'profile_segment',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '個人頭像',
+      subtitle: '#plurk-dashboard .dash-group-left #dash-profile img.profile-pic',
+      name: 'profile_img',
+      csstype: ['opa', 'bdrs', 'sha'],
+    },
+    {
+      title: '個人暱稱',
+      subtitle: '#plurk-dashboard .dash-group-left #dash-profile #full_name .display_name',
+      name: 'profile_name',
+      csstype: ['c', 'fz', 'opa'],
+    },
+    {
+      title: '私噗按鈕',
+      subtitle: '.friend_man.private_plurk',
+      name: 'profile_private',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs'],
+    },
+    {
+      title: '送禮按鈕',
+      subtitle: '.friend_man.send_gift',
+      name: 'profile_gift',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs'],
+    },
+  ];
+
+  const dashboardRightList = [
+    {
+      title: '發噗區整體',
+      subtitle: '.dash-segment-post .segment-content',
+      name: 'post_segment',
+      csstype: ['bgc', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '發噗按鈕',
+      subtitle: '.submit_img_color',
+      name: 'post_submit',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '卡碼資訊區整體',
+      subtitle: '.dash-segment-stats .segment-content',
+      name: 'stats_segment',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '統計資訊',
+      subtitle: '#plurk-dashboard .dash-segment #dash-stats table td',
+      name: 'stats_fzcolor',
+      csstype: ['c', 'fz'],
+    },
+    {
+      title: '卡碼',
+      subtitle: '.dash-stats-karma',
+      name: 'stats_karma',
+      csstype: ['dp'],
+    },
+    {
+      title: '好友區整體',
+      subtitle: '.dash-segment-friends .segment-content',
+      name: 'friends_segment',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '紛絲區整體',
+      subtitle: '.dash-segment-fans .segment-content',
+      name: 'fans_segment',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
+      title: '好友粉絲頭像整體',
+      subtitle: '.friend_holder img',
+      name: 'friends_img',
+      csstype: ['opa', 'bdrs', 'sha'],
+    },
+    {
+      title: '好友按鈕',
+      subtitle: '#dash-friends .friend_man',
+      name: 'friends_friendbtn',
+      csstype: ['dp'],
+    },
+    {
+      title: '好友連結',
+      subtitle: '#dash-friends .show_all_friends, #dash-friends .show_mutual_friends',
+      name: 'friends_friendlink',
+      csstype: ['dp'],
+    },
+    {
+      title: '好友頭像',
+      subtitle: '#dash-friends .friend_holder',
+      name: 'friends_friendimg',
+      csstype: ['dp'],
+    },
+    {
+      title: '粉絲按鈕',
+      subtitle: '#dash-fans .friend_man',
+      name: 'fans_fanbtn',
+      csstype: ['dp'],
+    },
+    {
+      title: '粉絲連結',
+      subtitle: '#dash-fans .show_all_friends',
+      name: 'fans_fanlink',
+      csstype: ['dp'],
+    },
+    {
+      title: '粉絲頭像',
+      subtitle: '#dash-fans .friend_holder',
+      name: 'fans_fanimg',
+      csstype: ['dp'],
+    },
+    {
+      title: '徽章區',
+      subtitle: '#plurk-dashboard .dash-segment-award',
+      name: 'award_segment',
+      csstype: ['dp'],
+    },
+  ];
+
+  const otherList = [
+    {
+      title: '噗浪生物',
+      subtitle: '#dynamic_logo::after',
+      name: 'dynamic_ori',
+      csstype: ['dcbgi', 'size', 'posi', 'opa'],
+    },
+    {
+      title: '官方生物',
+      subtitle: '#dynamic_logo #creature',
+      name: 'dynamic_creature',
+      csstype: ['opa'],
+    },
+    {
+      title: '時間軸生物',
+      subtitle: '.timeline-bg',
+      name: 'tl_bg',
+      csstype: ['tlbgi', 'tlbgirep', 'tlbgiposi'],
+    },
+    {
+      title: '噗幣旁生物',
+      subtitle: '.profile-icons::before',
+      name: 'p_coin',
+      csstype: ['pcoinbgi', 'size', 'opa'],
+    },
+  ];
+
+- const contentList = [plurkCntList, plurkBoxList, controlList, dashboardLeftList, dashboardRightList, otherList];
+
+- const areaList = ['th', 'fh', 'tc', 'dhl', 'dhr', 'other']
+
+- const menuList = ['河道', '噗內回應', '控制列', '主控台左', '主控台右', '其他項目']

@@ -1,0 +1,75 @@
+$tools-bar-width: 75px;
+$tools-container-pr: 10px;
+$tools-padding-tb: 15px;
+
+.tools {
+  display: flex;
+  max-width: 0;
+  height: 100%;
+  padding-top: $header-height;
+  box-sizing: border-box;
+  transition: 1s;
+  &-open {
+    max-width: 600px;
+  }
+  &_main {
+    flex-shrink: 0;
+    position: relative;
+    @include size(300px, 100%);
+    background-color: color(PureWhite);
+  }
+  &_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include size(100%);
+    padding: $tools-padding-tb 0;
+    padding-left: 0;
+    padding-right: $tools-container-pr;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    background-color: color(PureWhite);
+    transition: 0.5s;
+    &-open {
+      transform: translateX(0);
+    }
+  }
+  &_generator {
+    @include size(100%);
+    overflow-y: auto;
+  }
+  &_bar {
+    flex-shrink: 0;
+    position: relative;
+    @include size($tools-bar-width, 100%);
+    padding: $tools-padding-tb 0;
+    box-sizing: border-box;
+    background-color: lighten(color(Primary), 5);
+    color: color(White);
+  }
+}
+
+.menu {
+  &_list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  &_item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 10px;
+    cursor: pointer;
+    writing-mode: vertical-lr;
+    border-left: 5px solid transparent;
+    & + & {
+      margin-top: 10px;
+    }
+    &-active,
+    &:hover {
+      border-left-color: color(Success);
+      background-color: color(Primary);
+    }
+  }
+}

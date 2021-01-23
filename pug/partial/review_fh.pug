@@ -1,7 +1,7 @@
 
-// 噗內回應
-#form_holder.plurk_box(style='top: 0px; left: 50px; width: 460px;')
-  // 最上方資訊列 
+//- 噗內回應
+#form_holder.plurk_box(style=`left: ${plurk_cut_left}px; top: ${plurk_cut_top}px; width: 450px;`)
+  //- 最上方資訊列 
   .response_box(style='max-height: 200px;')
     .response_info.clearfix
       .favorite_count.button.small-button 1 喜歡
@@ -11,7 +11,7 @@
       .response-status
         span.response-count.pif-message 2 則回應
         .response-only-owner.button.small-button(style='display: inline-block;') 只顯示原作者的回應
-    // 回應內容
+    //- 回應內容
     .list
       .plurk.cboxAnchor.response.highlight_owner
         table
@@ -43,7 +43,11 @@
                             span
                         td.td_cnt
                           .text_holder 留言
-  // 打字區
+
+  //- 有新回應
+  .new_response_hint(style="display:none; opacity:0;") 有新回應
+
+  //- 打字區
   .poster_holder(style='display: block;')
     .mini_form
       .plurkForm.mini-mode

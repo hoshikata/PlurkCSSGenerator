@@ -1,0 +1,75 @@
+// 可以判斷然後看要不要加上vw/vh
+@mixin size($w, $h: $w) {
+  @if ($w == auto or $h == auto) {
+    width: $w;
+    height: $h;
+  } @else if (unit($w) == 'v' and $h == $w) {
+    width: $w + w;
+    height: $h + h;
+  } @else if (unit($w) == 'vw' and $h == $w) {
+    width: $w;
+    height: ($h / 1vw) + vh;
+  } @else if (unit($w) == 'vh' and $h == $w) {
+    width: ($w / 1vh) + vw;
+    height: $h;
+  } @else {
+    width: $w;
+    height: $h;
+  }
+}
+
+// Media
+@mixin breakpoint($point) {
+  @if ($point == sm) {
+    @media only screen and (max-width: 540px) {
+      @content;
+    }
+  }
+  @if ($point == md) {
+    @media only screen and (max-width: 770px) {
+      @content;
+    }
+  }
+  @if ($point == lg) {
+    @media only screen and (max-width: 1050px) {
+      @content;
+    }
+  }
+}
+
+// 三角形的作法
+@mixin triangle($color, $angle: right, $w: 10px, $h: $w * 0.58) {
+  width: 0;
+  height: 0;
+  @if ($angle == right) {
+    border-top: $h solid transparent;
+    border-bottom: $h solid transparent;
+    border-left: $w solid $color;
+  } @else if ($angle == left) {
+    border-top: $h solid transparent;
+    border-bottom: $h solid transparent;
+    border-right: $w solid $color;
+  } @else if ($angle == top) {
+    border-right: $h solid transparent;
+    border-left: $h solid transparent;
+    border-bottom: $w solid $color;
+  } @else if ($angle == bottom) {
+    border-right: $h solid transparent;
+    border-left: $h solid transparent;
+    border-top: $w solid $color;
+  }
+}
+
+// 拿取顏色群組的方法
+@function color($name, $theme: false, $group: $color) {
+  @if $theme == false {
+    @return map-get($group, $name);
+  } @else if $theme != false {
+    @return map-get(map-get($group, $theme), $name);
+  }
+}
+
+// 字體
+@mixin Noto {
+  font-family: 'Noto Sans TC', sans-serif;
+}

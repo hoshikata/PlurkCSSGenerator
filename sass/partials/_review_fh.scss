@@ -1,0 +1,369 @@
+$fh-index: (
+  plurk_box: 50,
+);
+
+//----- 噗內回應
+.review {
+  #form_holder {
+    background: #fff;
+    box-shadow: 1px 1px 3px -3px #000;
+  }
+  .plurk_box {
+    z-index: map-get($fh-index, plurk_box);
+    position: absolute;
+  }
+  .plurkForm::after,
+  .input_holder::after,
+  .share_list::after,
+  .icons_holder::after {
+    content: '';
+    clear: both;
+    height: 0;
+    display: block;
+  }
+
+  // 迷你發噗區
+  .plurk_box .mini_form {
+    padding: 4px 3px 2px;
+    font-weight: normal;
+    border-top: #eee 1px solid;
+    background-color: #fff;
+  }
+  .plurkForm {
+    position: relative;
+    padding: 3px 3px 0;
+  }
+  .plurkForm.mini-mode .input_holder,
+  .mini_form .input_holder {
+    border-radius: 6px;
+  }
+  .input_holder {
+    float: none;
+    width: auto;
+    overflow: hidden;
+    border: #eee 1px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .qual_holder {
+    position: relative !important;
+    padding: 3px;
+    font-size: 24px;
+  }
+  .plurkForm.mini-mode .qual_holder,
+  .mini_form .qual_holder {
+    padding: 1px 1px 0;
+    font-size: 12px;
+  }
+  #form_holder .qual_holder {
+    color: black;
+  }
+  .m_qualifier {
+    position: relative;
+    padding: 3px 6px 4px;
+    line-height: 100%;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: #fff;
+  }
+  .dd_img {
+    cursor: pointer;
+  }
+  .plurkForm.mini-mode .m_qualifier,
+  .mini_form .m_qualifier {
+    padding: 3px 6px 2px;
+  }
+
+  .pif-dropdown::before {
+    content: '▼';
+  }
+  .m_qualifier i::before {
+    top: 0;
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .mini_form .m_qualifier i::before {
+    top: 1px;
+    font-size: 12px;
+    line-height: 10px;
+  }
+  .textarea_holder {
+    float: none;
+    width: auto;
+    overflow: hidden;
+  }
+  .textarea_holder textarea {
+    display: block;
+    clear: none;
+    width: 100%;
+    height: 37px;
+    margin: 0 !important;
+    padding: 0 0 0 2px !important;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 25px;
+    line-height: 37px;
+    border: 0;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: none;
+  }
+  .plurkForm.mini-mode .textarea_holder textarea,
+  .mini_form .textarea_holder textarea {
+    height: 19px;
+    font-size: 12px;
+    line-height: 19px;
+    border-radius: 4px;
+  }
+  .icons_holder {
+    float: left;
+    margin: 4px 0 4px;
+    overflow: hidden;
+    font-size: 12px;
+  }
+  .plurkForm.mini-mode .icons_holder,
+  .mini_form .icons_holder {
+    margin: 1px 0 3px;
+  }
+  .icons_holder li {
+    position: relative;
+    float: left;
+    width: 32px;
+    margin: 4px 6px 0 0;
+    cursor: pointer;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+  }
+  .plurkForm.mini-mode .icons_holder li,
+  .mini_form .icons_holder li {
+    width: 26px;
+    margin: 1px 1px 0 0;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .plurkForm.mini-mode .icons_holder .pif-emoticon,
+  .mini_form .icons_holder .pif-emoticon {
+    &::after {
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      background: #333;
+      margin: -19px 0 0 7px;
+    }
+  }
+  .icons_holder .pif-emoticon {
+    color: #fcd254;
+  }
+  .icons_holder .pif-media {
+    color: #8bcfd6;
+  }
+  .plurkForm.mini-mode .icons_holder,
+  .mini_form .icons_holder {
+    .pif-emoticon,
+    .pif-media {
+      &::before {
+        font-size: 20px;
+      }
+    }
+  }
+  .plurk_to,
+  .plurkForm .whispers_hint,
+  .priv,
+  .plurk_schedule {
+    float: right;
+    margin-top: 6px;
+    opacity: 0.6;
+    font-size: 13px;
+    line-height: 17px;
+    text-align: right;
+  }
+  .char_updater {
+    clear: both;
+    display: block;
+    opacity: 0.75;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .plurkForm.mini-mode .char_updater,
+  .mini_form .char_updater {
+    clear: none;
+    float: right;
+    margin: 4px 5px 0;
+    color: #999;
+  }
+
+  // 回應區
+  .response_box {
+    position: relative;
+    min-height: 260px;
+    overflow: auto;
+    overflow-x: hidden;
+    border-top: #eee 1px solid;
+    background: #fff;
+  }
+
+  // 回應區上方的資訊列
+  .button,
+  .orange-but {
+    display: inline-block;
+    width: auto;
+    padding: 9px 13px;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    vertical-align: middle;
+    border: 0;
+    border-radius: 999px;
+    background: #ff574d;
+    color: #fff;
+    box-shadow: none;
+  }
+  .button.small-button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .favorite_count,
+  .replurk_count,
+  .bookmark_info,
+  .private_info {
+    margin: 9px 0 4px 10px;
+    color: #fff;
+    float: left;
+  }
+  .favorite_count {
+    background: #54a4be;
+  }
+  .favorite_count:hover {
+    background: #4494ae;
+  }
+  .replurk_count {
+    background: #56b892;
+  }
+  .replurk_count:hover {
+    background: #46a882;
+  }
+  .bookmark_info {
+    background: #5abac5;
+  }
+  .bookmark_info:hover {
+    background: #4a9aa5;
+  }
+  .private_info {
+    background: #f4ca35;
+  }
+  .private_info:hover {
+    background: #e4ba25;
+  }
+  .response-status {
+    clear: both;
+    margin-top: 5px;
+    padding: 4px 0;
+    font-size: 12px;
+  }
+  .response-status .response-count {
+    height: 24px;
+    padding: 5px 0 0 10px;
+    font-weight: normal;
+    line-height: 24px;
+    background-color: transparent;
+    color: #afb8cc;
+  }
+  .response-status .response-only-owner {
+    margin-left: 10px;
+    opacity: 0;
+    transform: scale(0.9);
+    font-weight: normal;
+    vertical-align: top;
+    background: #f5f5f9;
+    color: #afb8cc;
+  }
+  .response-status:hover .response-only-owner {
+    opacity: 1;
+  }
+  .response-status .response-only-owner:hover {
+    background: #afb8cc;
+    color: #fff;
+  }
+
+  // 回應區留言
+  .language-large-font .list {
+    font-size: 0.93em;
+  }
+  .plurk_box .list {
+    clear: both;
+    position: relative;
+    height: auto !important;
+    padding: 5px 5px;
+  }
+  .list .plurk {
+    position: relative;
+    margin: 3px 0;
+  }
+  .plurk {
+    white-space: nowrap;
+    color: #111;
+  }
+  .plurk_box table {
+    width: 100%;
+  }
+  .plurk td {
+    vertical-align: top;
+    white-space: nowrap !important;
+  }
+  .plurk_cnt {
+    position: relative;
+    padding: 2px 0 0;
+    // transition: background-color 5s;
+    font-weight: normal;
+    line-height: 1.3;
+    background-color: #fff;
+    color: #111;
+    box-shadow: 1px 1px 3px -3px #000;
+  }
+  .list .plurk_cnt {
+    padding-bottom: 0px;
+    transition: background-color 0s;
+    border: none;
+    box-shadow: none;
+  }
+  .list .td_qual {
+    width: 0%;
+  }
+  .plurk td {
+    vertical-align: top;
+    white-space: nowrap !important;
+  }
+  .td_qual {
+    width: 0%;
+    padding: 2px 0 2px 5px;
+  }
+  .name {
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .td_cnt {
+    width: 100%;
+    padding: 2px 5px 5px 0;
+  }
+  .list .td_cnt {
+    width: 100%;
+  }
+  .text_holder {
+    position: relative;
+    min-width: 48px;
+    white-space: normal !important;
+    background: none;
+  }
+  .list .text_holder {
+    width: 100% !important;
+    margin-left: 5px;
+    margin-right: 5px;
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}

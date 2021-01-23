@@ -1,0 +1,39 @@
+.customization-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: color(Secondary) rgba(color(WhiteGray), 0.5);
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(color(WhiteGray), 0.5);
+    border-radius: 5px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: color(Secondary);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: lighten(color(Secondary), 10);
+  }
+}
+
+.cross_btn {
+  position: relative;
+  @include size(15px);
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    @include size(100%, 3px);
+    transform: translateY(-50%) rotate(45deg);
+    border-radius: 5px;
+    background-color: currentColor;
+  }
+  &::after {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}

@@ -1,0 +1,136 @@
+.review {
+  flex-grow: 1;
+  position: relative;
+  height: 100vh;
+  padding-top: $header-height;
+  box-sizing: border-box;
+  &_container {
+    height: 100%;
+    overflow-y: auto;
+    z-index: 0 !important;
+    position: relative;
+    top: auto !important;
+    bottom: auto !important;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 !important;
+  }
+}
+
+.review {
+  div,
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  pre,
+  code,
+  form,
+  fieldset,
+  legend,
+  input,
+  textarea,
+  p,
+  blockquote,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+    font-weight: normal;
+  }
+  h2 {
+    font-family: Arial, Verdana, sans-serif;
+  }
+  p {
+    margin-bottom: 18px;
+  }
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ff574d;
+  }
+  a img {
+    border: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  th {
+    font-style: normal;
+  }
+
+  .clearfix {
+    clear: both;
+    &::after {
+      content: '';
+      clear: both;
+      display: block;
+      width: 0px;
+      height: 0px;
+      font-size: 0px;
+      line-height: 0px;
+    }
+  }
+  [class^='pif-']::before,
+  [class*=' pif-']::before {
+    position: relative;
+    display: inline-block;
+    top: 1px;
+    font-family: 'PlurkIconFont' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  [class^='pif-']::before,
+  .pif-emoticon::before,
+  .pif-user-add::before,
+  .pif-follow_add::before,
+  .pif-follow::before,
+  .pif-volume::before,
+  .pif-media::before {
+    content: '❅';
+    font-size: 18px;
+    margin-right: 0;
+  }
+
+  #layout_content {
+    position: relative;
+    top: auto !important;
+    bottom: auto !important;
+    // padding-top: 42px;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 !important;
+    overflow-x: hidden;
+    font-size: 13px;
+    background-color: #eeebf0;
+    color: #333;
+
+    // 預覽背景設定 **
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+}

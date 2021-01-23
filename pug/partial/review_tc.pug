@@ -1,8 +1,9 @@
 
-// 控制列
+//- 控制列
 .timeline_control
   #timeline_control_holder
-    // 頻道
+
+    //- 頻道
     ul#filter_tab
       li
         a#favorite_plurks_tab_btn.off_tab.has_unread(title='瀏覽您按過喜歡的訊息')
@@ -37,18 +38,31 @@
           | 所有訊息
           span#count_all_plurk
             span.unread_generic 192
-    // 更新
-    #updater
-      // 新訊息
+
+    //- 更新
+    #updater(style="visibility: visible;")
+      //- 新訊息
       #noti_np.item
         a
           i.pif-message-new
           span#noti_np_text 新訊息
-          span#noti_np_count.unread_generic 19
+          span#noti_np_count.unread_generic 15
+      //- 檢視訊息
       #noti_re.item
-        // 檢視訊息
         #noti_re_view.item
           a
             i.pif-message-new
             span#noti_re_text 檢視未讀訊息
-            span#noti_re_count.unread_generic 83
+            span#noti_re_count.unread_generic 80
+        #noti_re_actions.item(style="display: none;")
+          a#mark_all_link.updater_link
+            i.pif-check
+            span 全部標為已讀
+          a#view_all_plurk.updater_link
+            i.pif-cancel
+            span 顯示所有訊息
+      //- 查看置頂訊息
+      #noti_pp.item(style="display:none")
+        a
+          i.pif-message-new
+          span#noti_pp_text 查看置頂訊息
