@@ -498,7 +498,10 @@
     selectButton.addEventListener('click', () => exportCode.select());
     clearButton.addEventListener('click', () => (exportCode.value = ''));
     createButton.addEventListener('click', () => {
-      exportCode.value = generatorExportResult().join('\n');
+      const info = ['/**======== Create by Plurk CSS Generator ========**/', '/**== https://hoshikata.github.io/PlurkCSSGenerator ==**/'];
+      const result = generatorExportResult();
+      result.unshift(...info);
+      exportCode.value = result.join('\n');
     });
   };
   exportControl();
