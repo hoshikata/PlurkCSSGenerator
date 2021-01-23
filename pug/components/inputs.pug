@@ -107,7 +107,7 @@ mixin typeDisplay(name)
 //- 特殊 css type input
 mixin typeBlur(name)
   - const type = 'blur'
-  +title(type, '模糊化', 'filter:')
+  +title(type, '模糊化', 'filter')
     +rangeInput(name, type, [0, 5, 1], true)
 
 mixin typePosition(name)

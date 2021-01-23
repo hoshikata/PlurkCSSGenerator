@@ -259,8 +259,8 @@
     toolsContainerSwitch();
     generatorOpened();
     toIconAndCountPositionSync();
-    generatorInputsHandler();
     inputValueSync();
+    generatorInputsHandler();
   };
   generatorBasicHandler();
 
@@ -546,7 +546,7 @@
   };
 
   //== 將結果放到 style 中
-  const generatorReviewResultWhenInput = (resultImage) => {
+  const generatorReviewResultWhenInput = () => {
     const resultList = generatorExportResult();
     const newResultList = resultList.map((result) => {
       result = result.replace(/\n\s\s/g, '');
@@ -559,11 +559,10 @@
   };
   const generatorReviewHandler = () => {
     const generatorInput = document.querySelectorAll('.generator_box input');
-    const resultImage = {};
     let result = '';
     generatorInput.forEach((input) => {
       input.addEventListener('input', () => {
-        const newResult = generatorReviewResultWhenInput(resultImage);
+        const newResult = generatorReviewResultWhenInput();
         if (result === newResult) return;
         result = newResult;
         reviewStyleBlock.textContent = result;
