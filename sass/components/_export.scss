@@ -114,3 +114,25 @@
     transform: translateY(-50%) rotate(45deg);
   }
 }
+
+@include breakpoint(sm) {
+  .export {
+    flex-direction: column;
+    right: auto;
+    left: 0;
+    width: 100%;
+    padding-top: $header-height + $nav-height-sm + 10px;
+    &_control {
+      display: flex;
+      margin-right: 0;
+    }
+    &_btn {
+      margin-bottom: 0;
+      margin-right: 10px;
+    }
+    .clear_button {
+      margin-top: 0;
+      margin-left: 10%;
+    } 
+  }
+}

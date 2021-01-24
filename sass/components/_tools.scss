@@ -1,21 +1,25 @@
 $tools-bar-width: 75px;
+$tools-bar-width-sm: 50px;
+$tools-main-width: 320px;
 $tools-container-pr: 10px;
 $tools-padding-tb: 15px;
 
 .tools {
+  flex-shrink: 0;
   display: flex;
-  max-width: 0;
+  width: 0;
   height: 100%;
   padding-top: $header-height;
   box-sizing: border-box;
-  transition: 1s;
+  overflow: hidden;
+  transition: 0.5s;
   &-open {
-    max-width: 600px;
+    width: $tools-bar-width + $tools-main-width;
   }
   &_main {
     flex-shrink: 0;
     position: relative;
-    @include size(300px, 100%);
+    @include size($tools-main-width, 100%);
     background-color: color(PureWhite);
   }
   &_container {
@@ -46,6 +50,26 @@ $tools-padding-tb: 15px;
     box-sizing: border-box;
     background-color: lighten(color(Primary), 5);
     color: color(White);
+  }
+  @include breakpoint(sm) {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: $header-height + $nav-height-sm;
+    transform: translateY(-100%);
+    &-open {
+      width: 100%;
+      transform: translateY(0);
+    }
+    &_main {
+      flex-grow: 1;
+      width: auto;
+    }
+    &_bar {
+      width: $tools-bar-width-sm;
+    }
   }
 }
 

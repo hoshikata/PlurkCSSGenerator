@@ -11,7 +11,8 @@ $sidebar-height: 21px;
   top: 0;
   left: 0;
   @include size(100%, $header-height);
-  padding: 0 0 0 40px;
+  padding: 0;
+  padding-left: 40px;
   box-sizing: border-box;
   background-image: linear-gradient(160deg, rgba(color(Secondary), 0.9), rgba(color(Primary), 0.9) 300%);
   color: color(White);
@@ -30,9 +31,18 @@ $sidebar-height: 21px;
       font-weight: 300;
     }
   }
+  @include breakpoint(lg) {
+    &_title {
+      font-size: 0;
+    }
+  }
+  @include breakpoint(sm) {
+    padding-left: 15px;
+  }
 }
 
 .logo {
+  flex-shrink: 0;
   position: relative;
   @include size(40px);
   box-sizing: border-box;
@@ -76,6 +86,7 @@ $sidebar-height: 21px;
   margin-right: 10px;
   &_btn {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100%;
     margin-right: 10px;
@@ -103,6 +114,27 @@ $sidebar-height: 21px;
       }
     }
   }
+  @include breakpoint(lg) {
+    &_btn {
+      margin-right: 0;
+    }
+  }
+  @include breakpoint(sm) {
+    position: absolute;
+    justify-content: space-evenly;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    margin-right: 0;
+    transform: translateY(100%);
+    font-size: 1rem;
+    background-image: linear-gradient(160deg, rgba(color(Secondary), 0.9), rgba(color(Primary), 0.9) 300%);
+    &_btn {
+      flex-grow: 1;
+      padding: 0;
+    }
+  }
 }
 
 .github_button {
@@ -110,6 +142,9 @@ $sidebar-height: 21px;
   margin-right: 0;
   background: url('../image/github.png') no-repeat center center;
   background-size: 20px;
+  @include breakpoint(sm) {
+    display: none;
+  }
 }
 .plurkbg {
   &_list {
@@ -245,5 +280,8 @@ $sidebar-height: 21px;
   &-active,
   &:hover {
     background-color: rgba(color(Primary), 0.5);
+  }
+  @include breakpoint(lg) {
+    margin-left: 0;
   }
 }

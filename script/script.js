@@ -1,7 +1,7 @@
 {
   const noEmptyClass = 'generator_input-no-empty';
   const generatorApplyClass = 'generator_container-apply';
-  const hasImportantList = { c: ['control_updatecount', 'control_filtercount', 'profile_private', 'profile_gift'] };
+  const hasImportantList = { c: ['control_updatecount', 'control_filtercount', 'profile_private', 'profile_gift', 'friends_friendbtn', 'fans_fanbtn'] };
   const hasOverflowList = { bdrs: ['plurkcnt_pimg', 'plurkbox_holder'] };
   const reviewStyleBlock = document.querySelector('#reviewStyle');
 
@@ -413,6 +413,7 @@
       bd: [`${value[1]}px solid ${value[0]}`],
       sha: [`${value[2]}px ${value[2]}px ${value[3]}px ${valueHexToRgba(value[0], value[1])}`],
       dp: ['none'],
+      transi: [`${value[0]}s`],
       blur: [`blur(${value[0]}px)`],
       posi: valuePlusUnit(value, '%'),
       size: valuePlusUnit(value),

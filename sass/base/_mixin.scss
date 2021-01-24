@@ -21,17 +21,17 @@
 // Media
 @mixin breakpoint($point) {
   @if ($point == sm) {
-    @media only screen and (max-width: 540px) {
+    @media only screen and (max-width: 576px) {
       @content;
     }
   }
   @if ($point == md) {
-    @media only screen and (max-width: 770px) {
+    @media only screen and (max-width: 768px) {
       @content;
     }
   }
   @if ($point == lg) {
-    @media only screen and (max-width: 1050px) {
+    @media only screen and (max-width: 992px) {
       @content;
     }
   }

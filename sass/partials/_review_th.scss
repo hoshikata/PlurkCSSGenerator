@@ -386,5 +386,8 @@ $th-index: (
     margin-top: 12px;
     cursor: move;
     white-space: nowrap;
+    img {
+      border-radius: 50px;
+    }
   }
 }

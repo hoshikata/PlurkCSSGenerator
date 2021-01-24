@@ -104,6 +104,11 @@ mixin typeDisplay(name)
   +title(type, '隱藏區塊', 'display')
     +checkInput(name, type, true)
 
+mixin typeTransition(name)
+  - const type = 'transi'
+  +title(type, '變化時間', 'transition')
+    +rangeInput(name, type, [0, 1, 0.1], true, '秒')
+
 //- 特殊 css type input
 mixin typeBlur(name)
   - const type = 'blur'
@@ -184,6 +189,8 @@ mixin createInputFromList(list, name)
       +typeShadow(name)
     if (cssType === 'dp')
       +typeDisplay(name)
+    if (cssType === 'transi')
+      +typeTransition(name)
     if (cssType === 'blur')
       +typeBlur(name)
     if (cssType === 'posi')
@@ -211,8 +218,18 @@ mixin createInputFromList(list, name)
 mixin generator(list)
   .generator
     each item, index in list
-      - const { name, title, subtitle, csstype: list } = item
+      - const { name, title, subtitle, csstype: list, hover } = item
+      - if (hover) list.push('transi')
       .generator_container(id=name)
         h5.generator_title(data-selector=subtitle)=title
         .generator_body
           +createInputFromList(list, name)
+      if (hover)
+        - const hasDp = list.indexOf('dp')
+        - if (hasDp !== -1) list.splice(hasDp, 1)
+        - const hasTransi = list.indexOf('transi')
+        - if (hasTransi !== -1) list.splice(hasTransi, 1)
+        .generator_container(id=`${name}_hover`)
+          h5.generator_title(data-selector=`${subtitle}:hover`)=`${title}：滑鼠移至`
+          .generator_body
+            +createInputFromList(list, `${name}_hover`)

@@ -43,6 +43,11 @@
     position: relative;
     float: right;
     width: 67%;
+    @include breakpoint(sm) {
+      width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
   }
   #plurk-dashboard .dash-group-left {
     position: relative;
@@ -50,6 +55,11 @@
     width: 33%;
     padding-right: 10px;
     box-sizing: border-box;
+    @include breakpoint(sm) {
+      width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
   }
   #plurk-dashboard .dash-segment {
     float: left;
@@ -449,6 +459,11 @@
   #plurk-dashboard .dash-segment-friends {
     width: 49.3%;
     margin-right: 1.4%;
+    @include breakpoint(sm) {
+      width: 100%;
+      margin-right: 0;
+      box-sizing: border-box;
+    }
   }
   #plurk-dashboard .dash-segment-friends #dash-friends #friend_managment {
     margin-top: 5px;
@@ -466,6 +481,10 @@
   // 粉絲區
   #plurk-dashboard .dash-segment-fans {
     width: 49.3%;
+    @include breakpoint(sm) {
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
   #plurk-dashboard .dash-segment-fans #dash-fans #fan_managment {
     margin-top: 5px;
