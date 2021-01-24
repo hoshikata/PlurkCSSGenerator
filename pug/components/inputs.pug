@@ -128,7 +128,7 @@ mixin typeSize(name)
     +textInput(name, type, '高度')
 
 mixin typeImage(name, type)
-  //- dcbgi, pcoinbgi, tlbgi
+  //- dcbgi, pcoinbgi, tlbgi, browsealbgi, browsearbgi
   +title(type, '背景圖', 'background-image')
     +textInput(name, type, '圖片網址')
 
@@ -140,6 +140,7 @@ mixin typeImgRepeat(name)
 mixin typeImgPosition(name)
   - const type = 'tlbgiposi'
   +title(type, '位置', 'background-position')
+    +rangeInput(name, type, [0, 100, 1], true, '下方')
     +rangeInput(name, type, [0, 100, 1], true, '左方')
 
 mixin typeUp(name, type)
@@ -171,7 +172,8 @@ mixin typeCountPosi(name)
 //- 按照 list 產出 input
 mixin createInputFromList(list, name)
   each cssType in list
-    - const typeIsImage = cssType === 'dcbgi' || cssType === 'pcoinbgi' || cssType === 'tlbgi'
+    - const imageTypeList = ['dcbgi', 'pcoinbgi', 'tlbgi', 'browsealbgi', 'browsearbgi', 'browsettbgi', 'loadingbgi']
+    - const typeIsImage = imageTypeList.includes(cssType)
     - const typeIsUp = cssType === 'up'|| cssType === 'boxup'
     if (cssType === 'bgc')
       +typeBgc(name)

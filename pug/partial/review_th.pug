@@ -59,6 +59,7 @@
                             | 這是被滑鼠移至的外觀
                           //- 移至與展開才會出現
                           .manager
+                            a.pif-edit.edit
                             a.mute.pif-volume.mute-off
                             a.pif-replurk.replurk.replurk-off
                               span 5
@@ -125,6 +126,7 @@
                               img.emoticon_my(src="https://picsum.photos/48/48?random=23" width="48" height="48")
                           //- 移至與展開才會出現
                           .manager
+                            a.pif-edit.edit
                             a.mute.pif-volume.mute-off
                             a.pif-replurk.replurk.replurk-off
                               span 5
@@ -175,6 +177,31 @@
               td.td_response_count
                 a(href="javascript:;")
                   span.response_count 20
+      //- 新訊息新噗
+      .plurk.cboxAnchor.new(style=`left: ${plurk_cut_left}px; top: ${plurk_cut_top}px;`)
+        table
+          tbody
+            tr
+              //- 噗頭像
+              td.td_img
+                .p_img
+                  a(href="javascript:;")
+                    img(src="https://picsum.photos/20/20?random=21")
+              //- 噗內容
+              td
+                .plurk_cnt.new1
+                  table
+                    tbody
+                      tr.tr_cnt
+                        //- 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href="javascript:;") 暱稱
+                        //- 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            //- 轉噗人名
+                            | 這是新訊息外觀
 
   //- 時間軸
   #timeline_bg.timeline-bg(style="padding-bottom: 0px;")
@@ -182,20 +209,22 @@
     .block_bg(style="height: 100% !important; width: 100% !important; left: 0px; transition: left 90ms linear 0s;")
       .bottom_start.day_start.div_bottom(style="left: 15px;") 今天
       .bottom_start.time_start.div_bottom(style="left: 300px;") 20:00
+      #div_loading.loading-div
+        .cnt
+          img(src="image/loading.gif")
 
   //- 噗下時間
   #time_show.timeline-timeshow.morning(style=`left: ${plurk_cut_left}px;`)
     span 今天 20:00
   
   //- 往前往後按鈕
-  //- .browse_button(style="right:10px; top:35%")
-  //-   .cmp_arrow_right.pif-arrow-right
-  //-   .cmp_back_to_today.pif-arrow-left Begin
-  //- .browse_button(style="left: 10px; top: 35%; display: none;")
+  .browse_button(style="right: 10px; top: 35%")
+    .cmp_arrow_right.pif-arrow-right
+    .cmp_back_to_today.pif-arrow-left Begin
+  .browse_button.browse_button_last(style="left: 10px; top: 35%;")
     .cmp_arrow_left.pif-arrow-left
     .cmp_back_to_today.pif-arrow-left Begin
 
   //- 噗浪生物
   #dynamic_logo
-    img#creature(src="https://picsum.photos/170/130?random=10")
-    //- img#creature(src="https://s.plurk.com/creatures/big/91fd11fbee6d78ae379ed5a5350eee36.png")
+    img#creature(src="image/creatures.png")

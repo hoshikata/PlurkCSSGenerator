@@ -1,7 +1,10 @@
 {
   const noEmptyClass = 'generator_input-no-empty';
   const generatorApplyClass = 'generator_container-apply';
-  const hasImportantList = { c: ['control_updatecount', 'control_filtercount', 'profile_private', 'profile_gift', 'friends_friendbtn', 'fans_fanbtn'] };
+  const hasImportantList = {
+    bgc: ['manager_edit_hover', 'manager_mute_hover', 'manager_replurk_hover', 'manager_like_hover', 'manager_mark_hover', 'manager_gift_hover'],
+    c: ['manager_edit_hover', 'manager_gift_hover', 'control_updatecount', 'control_filtercount', 'profile_private', 'profile_gift', 'friends_friendbtn', 'fans_fanbtn'],
+  };
   const hasOverflowList = { bdrs: ['plurkcnt_pimg', 'plurkbox_holder'] };
   const reviewStyleBlock = document.querySelector('#reviewStyle');
 
@@ -311,6 +314,12 @@
   const valueTlbgi = (value) => {
     return [`url('${value}')`, 'background-repeat: repeat-x', 'background-position: bottom left'];
   };
+  const valueBrowsebgi = (value) => {
+    return [`url('${value}')`, 'padding: 0', 'font-size: 0', 'background-repeat: no-repeat'];
+  };
+  const valueLoadingbgi = (value) => {
+    return [`url('${value}')`, 'position: relative', 'margin: 0 auto', 'background-repeat: no-repeat', 'background-position: center center'];
+  };
   const valueUp = () => {
     const result = ['噗友暱稱', ['.timeline-cnt .td_qual > span', ['position: absolute', 'transform: translate(-25px, -150%)']]];
     return [result];
@@ -428,7 +437,11 @@
       pcoinbgi: valuePcoinbgi(value[0]),
       tlbgi: valueTlbgi(value[0]),
       tlbgirep: ['no-repeat'],
-      tlbgiposi: [`bottom left ${value[0]}%`],
+      tlbgiposi: [`bottom ${value[0]}% left ${value[1]}%`],
+      browsealbgi: valueBrowsebgi(value[0]),
+      browsearbgi: valueBrowsebgi(value[0]),
+      browsettbgi: valueBrowsebgi(value[0]),
+      loadingbgi: valueLoadingbgi(value[0]),
       up: valueUp(),
       boxup: valueBoxup(),
       open: valueOpen(value[0]),

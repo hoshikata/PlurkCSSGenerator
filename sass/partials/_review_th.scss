@@ -38,6 +38,11 @@ $th-index: (
     &::-webkit-scrollbar {
       width: 0;
     }
+    &::after {
+      content: '';
+      display: block;
+      @include size(1900px, 1px);
+    }
   }
 
   // 河道噗
@@ -93,6 +98,25 @@ $th-index: (
     box-shadow: 1px 1px 3px -3px #000;
     background-color: #fff;
     color: #111;
+  }
+  .plurk_cnt.new6 {
+    transition: background-color 0s;
+    background-color: #ffff99;
+  }
+  .plurk_cnt.new5 {
+    background-color: #ffffaa;
+  }
+  .plurk_cnt.new4 {
+    background-color: #ffffbb;
+  }
+  .plurk_cnt.new3 {
+    background-color: #ffffcc;
+  }
+  .plurk_cnt.new2 {
+    background-color: #ffffdd;
+  }
+  .plurk_cnt.new1 {
+    background-color: #ffffee;
   }
   .timeline-cnt .display table {
     width: 100%;
@@ -350,6 +374,21 @@ $th-index: (
     color: #ccc;
     border-radius: 5px;
   }
+  .timeline-holder .loading-div {
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+  .timeline-holder .loading-div .cnt {
+    padding: 0 !important;
+  }
+  .timeline-holder .timeline-bg .block_bg .loading-div {
+    width: auto;
+    right: 100px;
+  }
 
   // 噗下時間
   .timeline-timeshow {
@@ -377,6 +416,59 @@ $th-index: (
     background: #ff574d;
   }
 
+  // 往前往後按鈕
+  .browse_button {
+    position: absolute;
+    z-index: 5000;
+    top: 167px;
+  }
+  .browse_button_last {
+    opacity: 0 !important;
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+  .browse_button .cmp_arrow_right,
+  .browse_button .cmp_arrow_left {
+    color: #ff574d;
+    font-size: 56px;
+  }
+  .browse_button .cmp_arrow_right {
+    &::before {
+      content: '→';
+      font-family: 'Potta One', cursive !important;
+    }
+  }
+  .browse_button .cmp_arrow_left {
+    &::before {
+      content: '←';
+      font-family: 'Potta One', cursive !important;
+    }
+  }
+  .browse_button .cmp_back_to_today {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 10px;
+    background: #ff574d;
+    color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    margin-left: 11px;
+    padding: 0px 9px;
+  }
+  .cmp_back_to_today::before {
+    content: '←';
+    font-family: 'Potta One', cursive !important;
+    position: absolute;
+    color: #ff574d;
+    margin-left: -19px;
+    margin-top: 4px;
+  }
+  .browse_button div {
+    border: none !important;
+    cursor: pointer;
+  }
+
   // 噗浪生物
   #dynamic_logo {
     z-index: map-get($th-index, dynamic_logo);
@@ -386,8 +478,5 @@ $th-index: (
     margin-top: 12px;
     cursor: move;
     white-space: nowrap;
-    img {
-      border-radius: 50px;
-    }
   }
 }

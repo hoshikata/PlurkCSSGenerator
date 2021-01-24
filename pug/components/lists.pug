@@ -19,6 +19,12 @@
       csstype: ['opa'],
     },
     {
+      title: '噗首外觀：新訊息',
+      subtitle: '.timeline-cnt .plurk_cnt[class*="new"]',
+      name: 'plurkcnt_new',
+      csstype: ['bgc', 'c', 'fz', 'opa', 'bdrs', 'bd', 'sha'],
+    },
+    {
       title: '噗首外觀：R18',
       subtitle: '.timeline-cnt .porn:not(.link_extend) .text_holder',
       name: 'plurkcnt_r18',
@@ -73,6 +79,48 @@
       subtitle: '.timeline-cnt .plurk_cnt a.ex_link',
       name: 'plurkcnt_link',
       csstype: ['c', 'fz'],
+      hover: true,
+    },
+    {
+      title: '噗的編輯鈕',
+      subtitle: '.manager > a.edit',
+      name: 'manager_edit',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
+      hover: true,
+    },
+    {
+      title: '噗的消音鈕',
+      subtitle: '.manager .mute-off',
+      name: 'manager_mute',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
+      hover: true,
+    },
+    {
+      title: '噗的轉噗鈕',
+      subtitle: '.manager .replurk-off',
+      name: 'manager_replurk',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
+      hover: true,
+    },
+    {
+      title: '噗的喜歡鈕',
+      subtitle: '.manager .like-off',
+      name: 'manager_like',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
+      hover: true,
+    },
+    {
+      title: '噗的書籤鈕',
+      subtitle: '.manager .mark-off',
+      name: 'manager_mark',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
+      hover: true,
+    },
+    {
+      title: '噗的噗幣鈕',
+      subtitle: '.manager > a.gift',
+      name: 'manager_gift',
+      csstype: ['dp', 'bgc', 'c', 'fz', 'opa', 'bdrs', 'bd'],
       hover: true,
     },
     {
@@ -390,6 +438,36 @@
       name: 'p_coin',
       csstype: ['pcoinbgi', 'size', 'opa'],
     },
+    {
+      title: '往前按鈕',
+      subtitle: '.browse_button .cmp_arrow_left',
+      name: 'browse_al',
+      csstype: ['browsealbgi', 'size', 'opa'],
+    },
+    {
+      title: '往後按鈕',
+      subtitle: '.browse_button .cmp_arrow_right',
+      name: 'browse_ar',
+      csstype: ['browsearbgi', 'size', 'opa'],
+    },
+    {
+      title: '回到最前按鈕',
+      subtitle: '.browse_button .cmp_back_to_today',
+      name: 'browse_tt',
+      csstype: ['browsettbgi', 'size', 'bgc', 'opa', 'bdrs'],
+    },
+    {
+      title: 'Loading 圖示',
+      subtitle: '.loading-div .cnt',
+      name: 'loading_cut',
+      csstype: ['loadingbgi', 'size', 'opa'],
+    },
+    {
+      title: '官方 Loading',
+      subtitle: '.loading-div .cnt img',
+      name: 'loading_img',
+      csstype: ['opa'],
+    }
   ];
 
 - const contentList = [plurkCntList, plurkBoxList, controlList, dashboardLeftList, dashboardRightList, otherList];

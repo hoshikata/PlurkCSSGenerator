@@ -161,7 +161,7 @@
     &::-moz-color-swatch,
     &::-webkit-color-swatch {
       border-radius: 3px;
-      border: none;
+      border: 1px solid rgba(color(Gray), 0.2);
     }
     &::-webkit-color-swatch-wrapper {
       padding: 0;
