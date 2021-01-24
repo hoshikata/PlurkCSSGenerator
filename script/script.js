@@ -29,9 +29,16 @@
   const sidebarSwitch = () => {
     const sidebarButton = document.querySelector('.sidebar');
     const tools = document.querySelector('.tools');
+    const sidebarClass = 'sidebar-active';
+    const toolsClass = 'tools-open';
+    const isSmMedia = window.matchMedia('(max-width: 576px)');
+    if (isSmMedia.matches) {
+      sidebarButton.classList.remove(sidebarClass);
+      tools.classList.remove(toolsClass);
+    }
     sidebarButton.addEventListener('click', () => {
-      sidebarButton.classList.toggle('sidebar-active');
-      tools.classList.toggle('tools-open');
+      sidebarButton.classList.toggle(sidebarClass);
+      tools.classList.toggle(toolsClass);
     });
   };
 
