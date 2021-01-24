@@ -374,13 +374,15 @@ $th-index: (
     color: #ccc;
     border-radius: 5px;
   }
+
+  // loading
   .timeline-holder .loading-div {
     position: absolute;
     top: 50%;
     margin-top: -100px;
     width: 100%;
-    padding: 0;
     text-align: center;
+    padding: 0;
   }
   .timeline-holder .loading-div .cnt {
     padding: 0 !important;

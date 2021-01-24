@@ -1708,8 +1708,8 @@ button {
   top: 50%;
   margin-top: -100px;
   width: 100%;
-  padding: 0;
   text-align: center;
+  padding: 0;
 }
 
 .review .timeline-holder .loading-div .cnt {
