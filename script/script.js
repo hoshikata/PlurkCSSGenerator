@@ -2,8 +2,8 @@
   const noEmptyClass = 'generator_input-no-empty';
   const generatorApplyClass = 'generator_container-apply';
   const hasImportantList = {
-    bgc: ['manager_edit_hover', 'manager_mute_hover', 'manager_replurk_hover', 'manager_like_hover', 'manager_mark_hover', 'manager_gift_hover'],
-    c: ['manager_edit_hover', 'manager_gift_hover', 'control_updatecount', 'control_filtercount', 'profile_private', 'profile_gift', 'friends_friendbtn', 'fans_fanbtn'],
+    bgc: ['manager_edit_hover', 'manager_mute_hover', 'manager_replurk_hover', 'manager_like_hover', 'manager_mark_hover', 'manager_gift_hover', 'manager_option_hover'],
+    c: ['manager_edit_hover', 'manager_gift_hover', 'manager_option_hover', 'control_updatecount', 'control_filtercount', 'profile_private', 'profile_gift', 'friends_friendbtn', 'fans_fanbtn'],
   };
   const hasOverflowList = { bdrs: ['plurkcnt_pimg', 'plurkbox_holder'] };
   const reviewStyleBlock = document.querySelector('#reviewStyle');
@@ -80,7 +80,7 @@
   const resetHandler = () => {
     const resetButton = document.querySelector('.reset_button');
     resetButton.addEventListener('click', () => {
-      const isReset = confirm('確定要清空所有嗎？');
+      const isReset = confirm('確定要清空所有設定嗎？');
       if (!isReset) return;
       resetButtonClickHandler();
     });
@@ -133,15 +133,15 @@
 
   //========== header all handler
   const headerAllHandler = () => {
-    plurkboxNoDisplay();
-    plurkbgHandler();
+    // themeNodeSwitch();
     sidebarSwitch();
     exportSwitch();
     resetHandler();
-    document.addEventListener('DOMContentLoaded', resetButtonClickHandler);
-    // themeNodeSwitch();
+    plurkboxNoDisplay();
+    plurkbgHandler();
   };
   headerAllHandler();
+  document.addEventListener('DOMContentLoaded', resetButtonClickHandler);
 
   //========== tools
   //== tools container 開關
@@ -295,6 +295,12 @@
   const valuePlusUnit = (value, unit = 'px') => {
     return value.map((string) => string + unit);
   };
+  const valueBdrs = (value) => {
+    const values = [...value];
+    const unit = values.splice(-1, 1);
+    const result = values.map((num) => num + unit);
+    return [result.join(' ')];
+  };
   const valueDcbgi = (value) => {
     return [`url('${value}')`, `content: ''`, 'position: absolute', 'display: block', 'background-repeat: no-repeat'];
   };
@@ -306,13 +312,14 @@
       'display: block',
       'bottom: 0',
       'left: 0',
+      'pointer-events: none',
       'transform: translateX(-100%)',
       'background-position: bottom right',
       'background-repeat: no-repeat',
     ];
   };
   const valueTlbgi = (value) => {
-    return [`url('${value}')`, 'background-repeat: repeat-x', 'background-position: bottom left'];
+    return [`url('${value}')`, 'position: relative', 'pointer-events: none', 'background-repeat: repeat-x', 'background-position: bottom left'];
   };
   const valueBrowsebgi = (value) => {
     return [`url('${value}')`, 'padding: 0', 'font-size: 0', 'background-repeat: no-repeat'];
@@ -425,9 +432,9 @@
       c: valueHexToRgba(...value),
       fz: valuePlusUnit(value),
       opa: value,
-      bdrs: [value.join('')],
-      bd: [`${value[1]}px solid ${value[0]}`],
-      sha: [`${value[2]}px ${value[2]}px ${value[3]}px ${valueHexToRgba(value[0], value[1])}`],
+      bdrs: valueBdrs(value),
+      bd: [`${value[2]}px solid ${valueHexToRgba(value[0], value[1])}`],
+      sha: [`${value[2]}px ${value[3]}px ${value[4]}px ${valueHexToRgba(value[0], value[1])}`],
       dp: ['none'],
       transi: [`${value[0]}s`],
       blur: [`blur(${value[0]}px)`],
@@ -442,6 +449,7 @@
       browsearbgi: valueBrowsebgi(value[0]),
       browsettbgi: valueBrowsebgi(value[0]),
       loadingbgi: valueLoadingbgi(value[0]),
+      cursor: [`url("${value[0]}"), auto`],
       up: valueUp(),
       boxup: valueBoxup(),
       open: valueOpen(value[0]),

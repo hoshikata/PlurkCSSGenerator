@@ -31,7 +31,7 @@ html(lang="zh-Hant-TW")
               span.plurkbg_clear.cross_btn
           button.nav_btn.plurkbg_button 預覽背景
           button.nav_btn.plurkbox_button 隱藏噗內回應
-          button.nav_btn.reset_button 清空所有
+          button.nav_btn.reset_button 清空設定
           button.nav_btn.export_button 輸出
           //- button.nav_btn.tip_button Tip
           a.nav_btn.github_button(href="https://github.com/hoshikata" target="_blank")
@@ -53,6 +53,7 @@ html(lang="zh-Hant-TW")
       #review.review
         .review_container.customization-scroll
           #layout_content.clearfix
+            - const plurk_box_width = 450
             - const plurk_cut_left = 80
             - const plurk_cut_width = 500
             - const plurk_cut_top = 50

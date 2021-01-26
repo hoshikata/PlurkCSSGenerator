@@ -1,10 +1,32 @@
+- 
+  const first_left = plurk_box_width + plurk_cut_left * 2
+  const second_left = plurk_box_width + plurk_cut_left * 2 + plurk_cut_width
+  const third_left = plurk_box_width + plurk_cut_left * 3 + plurk_cut_width * 2
+
+- 
+  const normal_left = first_left
+  const normal_top = plurk_cut_top
+  const extend_left = first_left
+  const extend_top = plurk_cut_top + plurk_cut_height
+  const box_left = second_left
+  const box_top = plurk_cut_top
+  const new_left = third_left
+  const new_top = plurk_cut_top
+  const muted_left = third_left
+  const muted_top = plurk_cut_top + plurk_cut_height
+  const anonymous_left = third_left
+  const anonymous_top = plurk_cut_top + plurk_cut_height * 2
+  const r18_left = third_left
+  const r18_top = plurk_cut_top + plurk_cut_height * 3
+
+
 //- 河道
 #timeline_holder.timeline-holder(style="height: 450px;")
   //- 河道的噗
   #timeline_cnt.timeline-cnt(style="padding-bottom: 0px;")
     .block_cnt(style="height: 100% !important; width: 100% !important; left: 0px; transition: left 90ms linear 0s;")
       //- 普通新噗
-      .plurk.cboxAnchor.new(style=`left: ${plurk_cut_left + plurk_cut_width}px; top: ${plurk_cut_top}px;`)
+      .plurk.cboxAnchor.new(style=`left: ${normal_left}px; top: ${normal_top}px;`)
         table
           tbody
             tr
@@ -33,7 +55,7 @@
                 a(href="javascript:;")
                   span.response_count 20
       //- 滑鼠移至噗
-      .plurk.cboxAnchor.new.display.link_extend(style=`left: ${plurk_cut_left + plurk_cut_width}px; top: ${plurk_cut_top + plurk_cut_height}px;`)
+      .plurk.cboxAnchor.new.display.link_extend(style=`left: ${extend_left}px; top: ${extend_top}px;`)
         table
           tbody
             tr
@@ -74,7 +96,7 @@
                 a(href="javascript:;")
                   span.response_count 20
       //- 展開後的噗
-      .plurk.cboxAnchor.display.link_extend.plurk_box(style=`left: ${(plurk_cut_left) + plurk_cut_width * 2}px; top: ${plurk_cut_top}px;`)
+      .plurk.cboxAnchor.display.link_extend.plurk_box(style=`left: ${box_left}px; top: ${box_top}px;`)
         table
           tbody
             tr
@@ -145,8 +167,83 @@
               td.td_response_count
                 a(href="javascript:;")
                   span.response_count 20
+      //- 新訊息新噗
+      .plurk.cboxAnchor.new(style=`left: ${new_left}px; top: ${new_top}px;`)
+        table
+          tbody
+            tr
+              //- 噗頭像
+              td.td_img
+                .p_img
+                  a(href="javascript:;")
+                    img(src="https://picsum.photos/20/20?random=21")
+              //- 噗內容
+              td
+                .plurk_cnt.new1
+                  table
+                    tbody
+                      tr.tr_cnt
+                        //- 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href="javascript:;") 暱稱
+                        //- 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            //- 轉噗人名
+                            | 這是新訊息外觀
+      //- 消音噗
+      .plurk.cboxAnchor.muted(style=`left: ${muted_left}px; top: ${muted_top}px;`)
+        table
+          tbody
+            tr
+              //- 噗頭像
+              td.td_img
+                .p_img
+                  a(href="javascript:;")
+                    img(src="https://picsum.photos/20/20?random=21")
+              //- 噗內容
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        //- 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href="javascript:;") 暱稱
+                        //- 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            //- 轉噗人名
+                            | 這是消音噗外觀
+      //- 偷偷說
+      .plurk.cboxAnchor(data-uid="99999" style=`left: ${anonymous_left}px; top: ${anonymous_top}px;`)
+        table
+          tbody
+            tr
+              //- 噗頭像
+              td.td_img
+                .p_img
+                  a(href="javascript:;")
+                    img(src="https://picsum.photos/20/20?random=21")
+              //- 噗內容
+              td
+                .plurk_cnt
+                  table
+                    tbody
+                      tr.tr_cnt
+                        //- 噗暱稱&轉噗標示
+                        td.td_qual
+                          span
+                            a.name(href="javascript:;") ಠ_ಠ
+                        //- 發噗內容
+                        td.td_cnt
+                          .text_holder
+                            //- 轉噗人名
+                            | 這是偷偷說外觀
       //- R18噗
-      .plurk.cboxAnchor.porn.new(style=`left: ${plurk_cut_left + plurk_cut_width}px; top: ${(plurk_cut_top + plurk_cut_height) * 2}px;`)
+      .plurk.cboxAnchor.porn(style=`left: ${r18_left}px; top: ${r18_top}px;`)
         table
           tbody
             tr
@@ -173,35 +270,6 @@
                               span.porn-icon.pif-porn
                             .text_holder
                               | 這是R18噗的外觀
-              //- 回應數
-              td.td_response_count
-                a(href="javascript:;")
-                  span.response_count 20
-      //- 新訊息新噗
-      .plurk.cboxAnchor.new(style=`left: ${plurk_cut_left}px; top: ${plurk_cut_top}px;`)
-        table
-          tbody
-            tr
-              //- 噗頭像
-              td.td_img
-                .p_img
-                  a(href="javascript:;")
-                    img(src="https://picsum.photos/20/20?random=21")
-              //- 噗內容
-              td
-                .plurk_cnt.new1
-                  table
-                    tbody
-                      tr.tr_cnt
-                        //- 噗暱稱&轉噗標示
-                        td.td_qual
-                          span
-                            a.name(href="javascript:;") 暱稱
-                        //- 發噗內容
-                        td.td_cnt
-                          .text_holder
-                            //- 轉噗人名
-                            | 這是新訊息外觀
 
   //- 時間軸
   #timeline_bg.timeline-bg(style="padding-bottom: 0px;")

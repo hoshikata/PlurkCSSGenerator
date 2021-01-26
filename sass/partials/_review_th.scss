@@ -41,7 +41,7 @@ $th-index: (
     &::after {
       content: '';
       display: block;
-      @include size(1900px, 1px);
+      @include size($timeline-cnt-width, 1px);
     }
   }
 

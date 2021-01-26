@@ -1319,7 +1319,7 @@ button {
 .review .timeline-cnt .block_cnt::after {
   content: '';
   display: block;
-  width: 1900px;
+  width: 2500px;
   height: 1px;
 }
 
