@@ -182,18 +182,6 @@ button {
   font-weight: 300;
 }
 
-@media only screen and (max-width: 992px) {
-  .header_title {
-    font-size: 0;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .header {
-    padding-left: 15px;
-  }
-}
-
 .logo {
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -286,47 +274,11 @@ button {
   background-color: rgba(181, 181, 181, 0.5);
 }
 
-@media only screen and (max-width: 992px) {
-  .nav_btn {
-    margin-right: 0;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .nav {
-    position: absolute;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    margin-right: 0;
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-    font-size: 1rem;
-    background-image: linear-gradient(160deg, rgba(15, 76, 129, 0.9), rgba(27, 38, 44, 0.9) 300%);
-  }
-  .nav_btn {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    padding: 0;
-  }
-}
-
 .github_button {
   width: 20px;
   margin-right: 0;
   background: url("../image/github.png") no-repeat center center;
   background-size: 20px;
-}
-
-@media only screen and (max-width: 576px) {
-  .github_button {
-    display: none;
-  }
 }
 
 .plurkbg_list {
@@ -428,12 +380,6 @@ button {
   background-color: rgba(27, 38, 44, 0.5);
 }
 
-@media only screen and (max-width: 992px) {
-  .sidebar {
-    margin-left: 0;
-  }
-}
-
 .tools {
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -503,33 +449,6 @@ button {
           box-sizing: border-box;
   background-color: #25343c;
   color: whitesmoke;
-}
-
-@media only screen and (max-width: 576px) {
-  .tools {
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding-top: 75px;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  .tools-open {
-    width: 100%;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  .tools_main {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    width: auto;
-  }
-  .tools_bar {
-    width: 50px;
-  }
 }
 
 .menu_list {
@@ -1101,33 +1020,6 @@ button {
           transform: translateY(-50%) rotate(45deg);
 }
 
-@media only screen and (max-width: 576px) {
-  .export {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    right: auto;
-    left: 0;
-    width: 100%;
-    padding-top: 85px;
-  }
-  .export_control {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-right: 0;
-  }
-  .export_btn {
-    margin-bottom: 0;
-    margin-right: 10px;
-  }
-  .export .clear_button {
-    margin-top: 0;
-    margin-left: 10%;
-  }
-}
-
 .review {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -1151,12 +1043,6 @@ button {
   width: 100%;
   min-height: 100%;
   margin: 0 !important;
-}
-
-@media only screen and (max-width: 576px) {
-  .review {
-    padding-top: 75px;
-  }
 }
 
 .review div,
@@ -1985,16 +1871,6 @@ button {
   width: 67%;
 }
 
-@media only screen and (max-width: 576px) {
-  .review #plurk-dashboard .dash-group-form,
-  .review #plurk-dashboard .dash-group-right {
-    width: 100%;
-    padding: 0 10px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-}
-
 .review #plurk-dashboard .dash-group-left {
   position: relative;
   float: left;
@@ -2002,15 +1878,6 @@ button {
   padding-right: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-@media only screen and (max-width: 576px) {
-  .review #plurk-dashboard .dash-group-left {
-    width: 100%;
-    padding: 0 10px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
 }
 
 .review #plurk-dashboard .dash-segment {
@@ -2473,15 +2340,6 @@ button {
   margin-right: 1.4%;
 }
 
-@media only screen and (max-width: 576px) {
-  .review #plurk-dashboard .dash-segment-friends {
-    width: 100%;
-    margin-right: 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-}
-
 .review #plurk-dashboard .dash-segment-friends #dash-friends #friend_managment {
   margin-top: 5px;
   text-align: center;
@@ -2499,14 +2357,6 @@ button {
 
 .review #plurk-dashboard .dash-segment-fans {
   width: 49.3%;
-}
-
-@media only screen and (max-width: 576px) {
-  .review #plurk-dashboard .dash-segment-fans {
-    width: 100%;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-  }
 }
 
 .review #plurk-dashboard .dash-segment-fans #dash-fans #fan_managment {
@@ -2973,4 +2823,121 @@ body.dark-mode {
 
 .no-display {
   display: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .header_title {
+    font-size: 0;
+  }
+  .nav_btn {
+    margin-right: 0;
+  }
+  .sidebar {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .header {
+    padding-left: 15px;
+  }
+  .nav {
+    position: absolute;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    margin-right: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+    font-size: 1rem;
+    background-image: linear-gradient(160deg, rgba(15, 76, 129, 0.9), rgba(27, 38, 44, 0.9) 300%);
+  }
+  .nav_btn {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: 0;
+  }
+  .github_button {
+    display: none;
+  }
+  .tools {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 75px;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  .tools-open {
+    width: 100%;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  .tools_main {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    width: auto;
+  }
+  .tools_bar {
+    width: 50px;
+  }
+  .export {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    right: auto;
+    left: 0;
+    width: 100%;
+    padding-top: 85px;
+  }
+  .export_control {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 0;
+  }
+  .export_btn {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  .export .clear_button {
+    margin-top: 0;
+    margin-left: 10%;
+  }
+  .review {
+    padding-top: 75px;
+  }
+  .review #plurk-dashboard .dash-group-form,
+  .review #plurk-dashboard .dash-group-right {
+    width: 100%;
+    padding: 0 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .review #plurk-dashboard .dash-group-left {
+    width: 100%;
+    padding: 0 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .review #plurk-dashboard .dash-segment-friends {
+    width: 100%;
+    margin-right: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .review #plurk-dashboard .dash-segment-fans {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
 }

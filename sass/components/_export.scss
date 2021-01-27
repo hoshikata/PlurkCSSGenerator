@@ -115,7 +115,7 @@
   }
 }
 
-@include breakpoint(sm) {
+@mixin exportSM {
   .export {
     flex-direction: column;
     right: auto;

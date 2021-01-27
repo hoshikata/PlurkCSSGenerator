@@ -17,7 +17,9 @@
     min-height: 100%;
     margin: 0 !important;
   }
-  @include breakpoint(sm) {
+}
+@mixin reviewSM {
+  .review {
     padding-top: $header-height + $nav-height-sm;
   }
 }

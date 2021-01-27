@@ -51,7 +51,9 @@ $tools-padding-tb: 15px;
     background-color: lighten(color(Primary), 5);
     color: color(White);
   }
-  @include breakpoint(sm) {
+}
+@mixin toolsSM {
+  .tools {
     z-index: 10;
     position: absolute;
     top: 0;
