@@ -18,6 +18,8 @@
     transform: translateY(0);
   }
   &_control {
+    display: flex;
+    flex-direction: column;
     padding: 10px 0;
     margin-right: 20px;
   }
@@ -106,12 +108,37 @@
   }
 }
 .clear_button {
-  margin-top: 50px;
   &::before {
     background-color: color(Danger);
   }
   .export_icon {
     transform: translateY(-50%) rotate(45deg);
+  }
+}
+.save_button,
+.load_button {
+  margin-top: 50px;
+  &::before {
+    background-color: color(LightGray);
+  }
+  .export_icon {
+    left: 3px;
+    @include size(20px);
+    box-sizing: content-box;
+    background-image: url('../image/save.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+}
+.load_button {
+  margin-top: 0;
+  .export_icon {
+    background-image: url('../image/load.svg');
   }
 }
 
@@ -121,18 +148,20 @@
     right: auto;
     left: 0;
     width: 100%;
+    max-height: 80%;
     padding-top: $header-height + $nav-height-sm + 10px;
     &_control {
       display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       margin-right: 0;
     }
     &_btn {
-      margin-bottom: 0;
+      margin-bottom: 10px;
       margin-right: 10px;
     }
-    .clear_button {
+    .save_button {
       margin-top: 0;
-      margin-left: 10%;
     } 
   }
 }

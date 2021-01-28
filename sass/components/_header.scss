@@ -34,14 +34,11 @@ $sidebar-height: 21px;
 }
 @mixin headerLG {
   .header {
+    padding-left: 15px;
     &_title {
+      padding-left: 0;
       font-size: 0;
     }
-  }
-}
-@mixin headerSM {
-  .header {
-    padding-left: 15px;
   }
 }
 
@@ -93,7 +90,7 @@ $sidebar-height: 21px;
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 0 10px;
     @include Noto;
     font-size: 1.1rem;
@@ -112,12 +109,15 @@ $sidebar-height: 21px;
       &.export_button {
         background-color: rgba(color(Success), 0.5);
       }
-      // &.tip_button,
+      &.tip_button,
       &.github_button {
         background-color: rgba(color(LightGray), 0.5);
       }
     }
   }
+}
+.load_button {
+  cursor: pointer;
 }
 .github_button {
   width: 20px;

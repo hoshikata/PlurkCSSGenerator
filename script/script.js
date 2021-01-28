@@ -7,6 +7,8 @@
   };
   const hasOverflowList = { bdrs: ['plurkcnt_pimg', 'plurkbox_holder'] };
   const reviewStyleBlock = document.querySelector('#reviewStyle');
+  const exportCode = document.querySelector('.export_code');
+  const generatorOriginValueList = [];
 
   //========== header
   //== theme mode switch
@@ -83,6 +85,7 @@
       const isReset = confirm('確定要清空所有設定嗎？');
       if (!isReset) return;
       resetButtonClickHandler();
+      exportCode.value = '';
     });
   };
 
@@ -425,7 +428,7 @@
     });
     return valueTypes;
   };
-  const generatorValueConversion = (valueList, type, areaName) => {
+  const generatorValueConversion = (valueList, type) => {
     const value = valueList[type].value;
     const conversionFunction = {
       bgc: valueHexToRgba(...value),
@@ -504,12 +507,14 @@
       generatorCssSpacialContent(valueList, valueTypes, exportResultList);
     }
   };
-  const generatorExportResult = () => {
-    const generatorOriginValueList = [];
-    const exportResultList = [];
+  const generatorGetOriginValueList = (originValueList) => {
+    originValueList.length = 0;
     const applyGenerator = document.querySelectorAll(`.${generatorApplyClass}`);
-    applyGenerator.forEach((generator) => generatorValueBasic(generator, generatorOriginValueList));
-    generatorOriginValueList.forEach((valueList) => {
+    applyGenerator.forEach((generator) => generatorValueBasic(generator, originValueList));
+  };
+  const generatorExportResult = (originValueList) => {
+    const exportResultList = [];
+    originValueList.forEach((valueList) => {
       const areaName = valueList.areaName;
       const valueTypes = generatorValueTypeFilter(valueList);
       generatorValueToBeResult(valueList, valueTypes, areaName);
@@ -517,23 +522,6 @@
     });
     return exportResultList;
   };
-
-  //========== export control
-  const exportControl = () => {
-    const exportCode = document.querySelector('.export_code');
-    const createButton = document.querySelector('.create_button');
-    const selectButton = document.querySelector('.select_button');
-    const clearButton = document.querySelector('.clear_button');
-    selectButton.addEventListener('click', () => exportCode.select());
-    clearButton.addEventListener('click', () => (exportCode.value = ''));
-    createButton.addEventListener('click', () => {
-      const info = ['/**======== Create by Plurk CSS Generator ========**/', '/**== https://hoshikata.github.io/PlurkCSSGenerator ==**/'];
-      const result = generatorExportResult();
-      result.unshift(...info);
-      exportCode.value = result.join('\n');
-    });
-  };
-  exportControl();
 
   //========== review
   //== 讓河道滑動
@@ -575,8 +563,8 @@
   };
 
   //== 將結果放到 style 中
-  const generatorReviewResultWhenInput = () => {
-    const resultList = generatorExportResult();
+  const generatorReviewResultWhenInput = (OriginValueList) => {
+    const resultList = generatorExportResult(OriginValueList);
     const newResultList = resultList.map((result) => {
       result = result.replace(/\n\s\s/g, '');
       result = result.replace(/\/\*(.+?)\*\//g, '');
@@ -591,7 +579,8 @@
     let result = '';
     generatorInput.forEach((input) => {
       input.addEventListener('input', () => {
-        const newResult = generatorReviewResultWhenInput();
+        generatorGetOriginValueList(generatorOriginValueList);
+        const newResult = generatorReviewResultWhenInput(generatorOriginValueList);
         if (result === newResult) return;
         result = newResult;
         reviewStyleBlock.textContent = result;
@@ -599,9 +588,92 @@
     });
   };
 
+  //========== review all handler
   const reviewControl = () => {
     blockCntScroll();
     generatorReviewHandler();
   };
   reviewControl();
+
+  //========== export control
+  const exportRecoveryInputValue = (input, i, value, css) => {
+    const type = input.type;
+    const syncBoxClass = ['color_box', 'range_box'];
+    const syncBox = syncBoxClass.some((classes) => input.classList.contains(classes));
+    if (type === 'text') {
+      input.value = value[i];
+      input.classList.add(noEmptyClass);
+      if (syncBox) input.nextElementSibling.value = value[i];
+    }
+    if (type === 'checkbox') {
+      input.checked = value[i];
+      toIconAndCountPositionSync();
+    }
+    if (type === 'radio') {
+      const [radioValue] = css === 'bdrs' ? [...value].splice(4, 1) : value;
+      if (input.value === radioValue) input.checked = 'true';
+    }
+  };
+  const exportLoadFileRecovery = (originValueList) => {
+    originValueList.forEach((valueList) => {
+      const { areaName, detail, selector, ...valueTypes } = valueList;
+      const cssList = Object.keys(valueTypes);
+      const container = document.querySelector(`#${areaName}`);
+      container.classList.add(generatorApplyClass);
+      cssList.forEach((css) => {
+        const value = valueTypes[css].value;
+        const box = container.querySelector(`[data-type="${css}"]`);
+        const inputs = box.querySelectorAll('input[type="text"], input[type="radio"], input[type="checkbox"]');
+        box.dataset.apply = 'true';
+        inputs.forEach((input, i) => exportRecoveryInputValue(input, i, value, css));
+      });
+    });
+  };
+  const exportControlWhenLoad = (e, originValueList) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', (el) => {
+      const valueList = JSON.parse(el.target.result);
+      const dateIndex = valueList.findIndex((value) => value.save_date);
+      valueList.splice(dateIndex, 1);
+      originValueList.length = 0;
+      originValueList.push(...valueList);
+      exportLoadFileRecovery(originValueList);
+      const result = generatorReviewResultWhenInput(valueList);
+      reviewStyleBlock.textContent = result;
+    });
+    reader.readAsText(file);
+  };
+  const exportControlWhenSave = (originValueList) => {
+    if (!originValueList.length) return;
+    const date = new Date().toString();
+    originValueList.push({ save_date: date, url: location.href });
+    const json = JSON.stringify(originValueList);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const download = document.createElement('a');
+    download.download = 'plurk_css_backup.json';
+    download.href = url;
+    download.click();
+  };
+  const exportControlWhenCreate = (originValueList) => {
+    const info = ['/**======== Create by Plurk CSS Generator ========**/', '/**== https://hoshikata.github.io/PlurkCSSGenerator ==**/'];
+    generatorGetOriginValueList(originValueList);
+    const result = generatorExportResult(originValueList);
+    result.unshift(...info);
+    exportCode.value = result.join('\n');
+  };
+  const exportControl = () => {
+    const createButton = document.querySelector('.create_button');
+    const selectButton = document.querySelector('.select_button');
+    const clearButton = document.querySelector('.clear_button');
+    const saveButton = document.querySelector('.save_button');
+    const loadInput = document.querySelector('.load_input');
+    saveButton.addEventListener('click', () => exportControlWhenSave(generatorOriginValueList));
+    loadInput.addEventListener('change', (e) => exportControlWhenLoad(e, generatorOriginValueList));
+    selectButton.addEventListener('click', () => exportCode.select());
+    clearButton.addEventListener('click', () => (exportCode.value = ''));
+    createButton.addEventListener('click', () => exportControlWhenCreate(generatorOriginValueList));
+  };
+  exportControl();
 }
