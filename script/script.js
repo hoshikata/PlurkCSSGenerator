@@ -646,9 +646,10 @@
   };
   const exportControlWhenSave = (originValueList) => {
     if (!originValueList.length) return;
+    const result = [...originValueList];
     const date = new Date().toString();
-    originValueList.push({ save_date: date, url: location.href });
-    const json = JSON.stringify(originValueList);
+    result.push({ save_date: date, url: location.href });
+    const json = JSON.stringify(result);
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const download = document.createElement('a');
